@@ -2,6 +2,7 @@
 
 import { Navigation } from "@/components/navigation"
 import { Github, Linkedin, Mail, ExternalLink, Download, Code, Palette, Smartphone, Globe } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Hi, I'm <span className="text-primary">Your Name</span>
+              Hi, I&apos;m <span className="text-primary">Your Name</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               A passionate full-stack developer creating beautiful and functional web experiences
@@ -66,11 +67,11 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">My Story</h3>
               <p className="text-muted-foreground mb-4">
-                I'm a dedicated full-stack developer with a passion for creating innovative web solutions. With
+                I&apos;m a dedicated full-stack developer with a passion for creating innovative web solutions. With
                 expertise in modern technologies and a keen eye for design, I bring ideas to life through code.
               </p>
               <p className="text-muted-foreground mb-6">
-                My journey in web development started several years ago, and I've been continuously learning and
+                My journey in web development started several years ago, and I&apos;ve been continuously learning and
                 adapting to new technologies. I believe in writing clean, maintainable code and creating user
                 experiences that make a difference.
               </p>
@@ -171,10 +172,12 @@ export default function Home() {
                 key={index}
                 className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-shadow duration-200"
               >
-                <img
+                <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="w-full h-48 object-cover"
+                  width={300}
+                  height={200}
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-card-foreground mb-2">{project.title}</h3>
@@ -209,15 +212,15 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities and interesting projects. Let's connect!
+              I&apos;m always open to discussing new opportunities and interesting projects. Let&apos;s connect!
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">Let's Work Together</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Let&apos;s Work Together</h3>
               <p className="text-muted-foreground mb-8">
-                Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear
+                Whether you have a project in mind, want to collaborate, or just want to say hello, I&apos;d love to hear
                 from you. Feel free to reach out through any of the channels below.
               </p>
 
