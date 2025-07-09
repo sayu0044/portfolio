@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react"
 import { ThemeToggle } from "./theme-toggle"
 import { Menu, X } from "lucide-react"
+import { useTheme } from "./theme-provider"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const { actualTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,8 +65,12 @@ export function Navigation() {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.id
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                      ? actualTheme === "light"
+                        ? "text-blue-900"
+                        : "text-blue-400"
+                      : actualTheme === "light"
+                        ? "text-black hover:bg-accent hover:text-accent-foreground"
+                        : "text-white hover:bg-accent hover:text-accent-foreground"
                   }`}
                 >
                   {item.label}
@@ -96,8 +102,12 @@ export function Navigation() {
                 onClick={() => scrollToSection(item.id)}
                 className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${
                   activeSection === item.id
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                    ? actualTheme === "light"
+                      ? "text-blue-900"
+                      : "text-blue-400"
+                    : actualTheme === "light"
+                      ? "text-black hover:bg-accent hover:text-accent-foreground"
+                      : "text-white hover:bg-accent hover:text-accent-foreground"
                 }`}
               >
                 {item.label}
