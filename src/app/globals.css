@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  /* Light mode colors */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #1e3a8a;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e3a8a;
+  --muted: #f8fafc;
+  --muted-foreground: #1e3a8a;
+  --accent: #e2e8f0;
+  --accent-foreground: #1e3a8a;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --card-foreground: #000000;
+}
+
+[data-theme="dark"] {
+  /* Navy blue dark mode colors */
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --primary: #60a5fa;
+  --primary-foreground: #0f172a;
+  --secondary: #0f172a;
+  --secondary-foreground: #f1f5f9;
+  --muted: #0f172a;
+  --muted-foreground: #94a3b8;
+  --accent: #1e3a8a;
+  --accent-foreground: #f1f5f9;
+  --border: #475569;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-foreground);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* Bouncing ball animations */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 2s infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-scale-animation {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+/* Circular elements */
+.circular-frame {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circular-decorative {
+  border-radius: 50%;
+  position: absolute;
+}
