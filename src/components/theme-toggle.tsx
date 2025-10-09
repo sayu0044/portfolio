@@ -1,41 +1,24 @@
-"use client"
+"use client";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import * as React from "react";
 
-import { useTheme } from "./theme-provider"
-import { Sun, Moon, Monitor } from "lucide-react"
-
-export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark")
-    } else if (theme === "dark") {
-      setTheme("system")
-    } else {
-      setTheme("light")
-    }
-  }
-
-  const getIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun className="h-5 w-5" />
-      case "dark":
-        return <Moon className="h-5 w-5" />
-      case "system":
-        return <Monitor className="h-5 w-5" />
-      default:
-        return <Sun className="h-5 w-5" />
-    }
-  }
+export function ThemeToggle({ className }: { className?: string }) {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const isDark = (resolvedTheme ?? theme) === "dark";
 
   return (
     <button
-      onClick={toggleTheme}
-      className="p-2 rounded-lg bg-accent hover:bg-secondary transition-colors duration-200 border border-border"
-      aria-label={`Switch to ${theme === "light" ? "dark" : theme === "dark" ? "system" : "light"} mode`}
+      type="button"
+      aria-label="Toggle theme"
+      className={`relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card/60 backdrop-blur-sm transition-colors hover:bg-card ${className ?? ""}`}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {getIcon()}
+      <Sun className="h-5 w-5 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+      <Moon className="pointer-events-none absolute h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
     </button>
-  )
+  );
 }
+
+
