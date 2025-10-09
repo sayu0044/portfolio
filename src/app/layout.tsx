@@ -4,8 +4,7 @@ import "./globals.css";
 import { HeroHighlight } from "@/components/ui/hero-highlight";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { IconHome, IconUser, IconFolder, IconMail } from "@tabler/icons-react";
+import SidebarDemo from "@/components/sidebar-demo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,19 +36,7 @@ export default function RootLayout({
           <div className="relative min-h-screen w-full">
             <div className="pointer-events-none fixed left-6 top-6 z-40 hidden md:block">
               <div className="pointer-events-auto">
-                <Sidebar animate={false}>
-                  <SidebarBody className="md:rounded-[16px] md:h:[420px] md:w-[240px] bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md text-neutral-900 dark:text-white shadow-lg border border-black/5 dark:border-white/10">
-                    <nav className="flex w-full flex-col gap-4 p-5">
-                      <a href="#about" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-900 dark:text-white">About</a>
-                      <a href="#services" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Services</a>
-                      <a href="#portfolio" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Portfolio</a>
-                      <a href="#testimonial" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Testimonial</a>
-                      <a href="#funfact" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Funfact</a>
-                      <a href="#blog" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Blog</a>
-                      <a href="#contact" className="uppercase tracking-wide font-semibold text-sm py-2 text-neutral-700 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white">Contact</a>
-                    </nav>
-                  </SidebarBody>
-                </Sidebar>
+                <SidebarDemo />
               </div>
             </div>
             <HeroHighlight containerClassName="min-h-screen h-auto">
