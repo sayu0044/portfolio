@@ -13,16 +13,16 @@ export default function AboutPage() {
             {/* Bio */}
             <article className="prose prose-neutral dark:prose-invert max-w-none prose-sm">
               <p>
-                Hi! My name is Sayu Dmar Yunan, or Sayu for short. I was born and raised in Surabaya, a city that is always bustling but full of stories in every corner. Currently, I am studying for a D4 degree in Information Technology at Airlangga University.
+                Hi! My name is Sayu Dmar Yunan, or Sayu for short. I was born and raised in Surabaya, a city that is always bustling but full of stories in every corner. Currently, I &#39;am studying for a D4 degree in Information Technology at Airlangga University.
               </p>
               <p>
                 Since I started college, I have always been interested in technology and design—two fields that seem different but actually complement each other. I love how the logic of programming can blend with the aesthetics of design to create something useful and beautiful to look at.
               </p>
               <p>
-                During my studies in Computer Science, I have learned and developed various technical skills, such as Laravel, Flutter, Golang, Next.js, and interface design using Figma. In addition, I am also accustomed to working with PostgreSQL and MySQL to manage databases efficiently.
+                During my studies in Computer Science, I have learned and developed various technical skills, such as Laravel, Flutter, Golang, Next.js, and interface design using Figma. In addition, I &#39;am also accustomed to working with PostgreSQL and MySQL to manage databases efficiently.
               </p>
               <p>
-                For me, technology isn't just a bunch of codes and systems, but a way to make other people's lives easier and more meaningful. Looking ahead, I aspire to become a civil servant—because I want to contribute directly to society through a professional path. But on the other hand, I also want to build my own business, so I can create innovative solutions that benefit many people.
+                For me, technology isn&#39;t just a bunch of codes and systems, but a way to make other people&#39;s lives easier and more meaningful. Looking ahead, I aspire to become a civil servant—because I want to contribute directly to society through a professional path. But on the other hand, I also want to build my own business, so I can create innovative solutions that benefit many people.
               </p>
             </article>
 

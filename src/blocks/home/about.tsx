@@ -12,7 +12,7 @@ export default function AboutBlock() {
 
         <div className="mt-5 text-neutral-700 dark:text-neutral-300 leading-relaxed">
           <p>
-          Hi! My name is Sayu Dmar Yunan. Currently, I am studying for a D4 degree in Information Technology at Airlangga University.
+          Hi! My name is Sayu Dmar Yunan. Currently, I &#39;am studying for a D4 degree in Information Technology at Airlangga University.
           Since I started college, I have always been interested in technology and design—two fields that seem different but actually complement each other. During my studies in Computer Science, I have learned and developed various technical skills
           </p>
         </div>
