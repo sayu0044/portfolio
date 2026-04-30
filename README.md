@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ashley — Portfolio (Next.js 15)
 
-## Getting Started
+Portfolio website built with **Next.js 15**, **App Router**, **TypeScript**, and **Tailwind CSS**.
+Converted from a static HTML template into a fully structured, production-ready Next.js project.
 
-First, run the development server:
+---
+
+## Stack
+
+| Tool | Version | Why |
+|---|---|---|
+| Next.js | 15.3.x | App Router, Server Components, Image optimization |
+| React | 19 | Latest stable |
+| TypeScript | 5 | Full type safety |
+| Tailwind CSS | 3.4 | Utility-first, mobile-first |
+| next/font | built-in | Outfit font, zero-CLS loading |
+
+---
+
+## Quick Start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3000
+
+# 3. Build for production
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx          ← Root layout, font, metadata, SEO
+│   ├── page.tsx            ← Home page — assembles all sections
+│   └── globals.css         ← Base styles, CSS animations, design tokens
+│
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx      ← Sticky header, mobile hamburger, active nav
+│   │   ├── Footer.tsx      ← Newsletter, links, social icons
+│   │   └── MobileMenu.tsx  ← Full-screen mobile menu overlay
+│   │
+│   ├── sections/
+│   │   ├── HeroSection.tsx         ← Dark hero with orbs, headline, stats
+│   │   ├── AboutSection.tsx        ← Photo, bio, skill bars
+│   │   ├── SkillsSection.tsx       ← Dark section, 4 service cards
+│   │   ├── ProjectsSection.tsx     ← Portfolio grid (2 featured + 4 small)
+│   │   ├── TestimonialsSection.tsx ← Touch-swipeable testimonial slider
+│   │   ├── BlogSection.tsx         ← Article cards with images
+│   │   └── ContactSection.tsx      ← Dark section, form + contact info
+│   │
+│   ├── ui/
+│   │   ├── AnimatedOrbs.tsx   ← CSS-only background orb decoration
+│   │   ├── ScrollProgress.tsx ← Top progress bar (client component)
+│   │   └── ArrowIcon.tsx      ← Reusable SVG arrow
+│   │
+│   └── hooks/
+│       └── useScrollReveal.ts ← IntersectionObserver scroll animations
+│
+└── lib/
+    └── data.ts              ← All portfolio content (edit here!)
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Update your content
+All content lives in `src/lib/data.ts`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+export const personal = {
+  name: "Ashley",
+  role: "Creative Developer & UI/UX Designer",
+  bio: "...",
+  email: "hello@ashley.design",
+  // ...
+};
 
-## Deploy on Vercel
+export const projects = [ /* add your projects */ ];
+export const testimonials = [ /* add testimonials */ ];
+export const blogPosts = [ /* add posts */ ];
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Change colors
+Edit CSS variables in `src/app/globals.css`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```css
+:root {
+  --color-accent: #FF9800;   /* orange — change to your brand color */
+  --color-bg-dark: #000000;
+  --color-bg-soft: #f2f2f2;
+}
+```
+
+Or update Tailwind config in `tailwind.config.ts`.
+
+---
+
+## Mobile-First Design
+
+- **Base CSS** = mobile (375px+)
+- `sm:` = 480px+
+- `md:` = 768px+
+- `lg:` = 1024px+
+- `xl:` = 1280px+
+
+No desktop styles are "made responsive" — everything starts from mobile and expands.
+
+---
+
+## Performance Approach
+
+- **Server Components** by default — `'use client'` only where needed (slider, menu, form)
+- **next/image** for all images — automatic WebP, lazy loading, size hints
+- **next/font** for Outfit — self-hosted, zero layout shift
+- **CSS-only orb animations** — no GSAP or heavy JS
+- **IntersectionObserver** for scroll reveal — passive, no scroll jank
+- **Passive event listeners** on scroll handlers
+- **`prefers-reduced-motion`** — all animations respect the system setting
+- **Touch target minimum 44px** on all interactive elements
+- **Safe area insets** for iOS notch
+
+---
+
+## Deployment
+
+```bash
+# Vercel (recommended)
+npx vercel
+
+# Docker
+docker build -t portfolio .
+docker run -p 3000:3000 portfolio
+```
+
+---
+
+## License
+MIT — edit and use freely.

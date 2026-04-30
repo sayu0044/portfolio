@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../portfolio"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "miller-bslthemes-com-ashley-demo-home-1-html-full-site-offline"
+	}
+}
