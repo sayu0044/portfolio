@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import ScrollRestoration from "@/components/ui/ScrollRestoration";
 import Preloader from "@/components/ui/Preloader";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <ScrollRestoration />
       <ScrollProgress />
       <Header />
       <main>

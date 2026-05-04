@@ -11,8 +11,8 @@ export default function ArrowIcon({
     direction === "down"
       ? "rotate-90"
       : direction === "up-right"
-      ? "-rotate-45"
-      : "";
+        ? "-rotate-45"
+        : "";
 
   return (
     <svg

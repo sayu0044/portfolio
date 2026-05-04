@@ -1,0 +1,420 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Ashley - Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - text: S.
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: "#home"
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: "#about"
+        - link "Skills" [ref=e10] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Work" [ref=e11] [cursor=pointer]:
+          - /url: "#work"
+        - link "Blog" [ref=e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Ashley
+        - paragraph [ref=e19]: ·
+        - paragraph [ref=e20]: Creative Developer & UI/UX Designer
+      - generic [ref=e22]:
+        - paragraph [ref=e23]
+        - paragraph [ref=e24]: Portfolio
+    - region "Hero - Introduction" [ref=e25]:
+      - generic [ref=e27]:
+        - generic [ref=e30]: Open to new projects
+        - heading "Ashley Creative Developer & UI/UX Designer." [level=1] [ref=e31]:
+          - text: Ashley
+          - generic [ref=e32]: Creative Developer & UI/UX Designer.
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: I design and build fast, beautiful digital products that bridge the gap between functionality and aesthetics. With 6+ years of experience, I help brands translate complex ideas into interfaces people actually enjoy using.
+          - generic [ref=e35]:
+            - link "View my work" [ref=e36] [cursor=pointer]:
+              - /url: "#work"
+              - text: View my work
+              - img [ref=e37]
+            - link "Get in touch" [ref=e39] [cursor=pointer]:
+              - /url: "#contact"
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: 6+
+            - generic [ref=e44]: Years Experience
+          - generic [ref=e45]:
+            - generic [ref=e46]: "48"
+            - generic [ref=e47]: Projects Shipped
+          - generic [ref=e48]:
+            - generic [ref=e49]: "32"
+            - generic [ref=e50]: Happy Clients
+          - generic [ref=e51]:
+            - generic [ref=e52]: "12"
+            - generic [ref=e53]: Awards Won
+      - generic [ref=e56]:
+        - generic [ref=e57]: Next.js
+        - generic [ref=e59]: React
+        - generic [ref=e61]: TypeScript
+        - generic [ref=e63]: Tailwind CSS
+        - generic [ref=e65]: Node.js
+        - generic [ref=e67]: Figma
+        - generic [ref=e69]: PostgreSQL
+        - generic [ref=e71]: GraphQL
+        - generic [ref=e73]: UI/UX Design
+        - generic [ref=e75]: Framer
+        - generic [ref=e77]: Vercel
+        - generic [ref=e79]: AWS
+        - generic [ref=e81]: Next.js
+        - generic [ref=e83]: React
+        - generic [ref=e85]: TypeScript
+        - generic [ref=e87]: Tailwind CSS
+        - generic [ref=e89]: Node.js
+        - generic [ref=e91]: Figma
+        - generic [ref=e93]: PostgreSQL
+        - generic [ref=e95]: GraphQL
+        - generic [ref=e97]: UI/UX Design
+        - generic [ref=e99]: Framer
+        - generic [ref=e101]: Vercel
+        - generic [ref=e103]: AWS
+      - link "Scroll down to about section" [ref=e106] [cursor=pointer]:
+        - /url: "#about"
+        - generic [ref=e107]: Scroll
+    - region "About me" [ref=e110]:
+      - generic [ref=e111]: 02 — About
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - generic [ref=e114]: About me
+          - heading "I design & build digital experiences." [level=2] [ref=e115]:
+            - text: I design &
+            - text: build digital
+            - text: experiences.
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - paragraph [ref=e118]: I design and build fast, beautiful digital products that bridge the gap between functionality and aesthetics. With 6+ years of experience, I help brands translate complex ideas into interfaces people actually enjoy using.
+            - paragraph [ref=e119]: Based in Jakarta, I collaborate with startups and established companies across Southeast Asia and beyond — turning strategy into pixel-perfect, performant products.
+            - blockquote [ref=e120]:
+              - paragraph [ref=e121]: “Design is not just what it looks like — design is how it works.”
+              - generic [ref=e122]: — Steve Jobs
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e125]: 6+
+                - text: Years
+              - generic [ref=e126]:
+                - generic [ref=e127]: "48"
+                - text: Projects
+              - generic [ref=e128]:
+                - generic [ref=e129]: "32"
+                - text: Clients
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - img "Ashley — Creative Developer & UI/UX Designer" [ref=e132]
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - paragraph [ref=e136]: Ashley
+                  - paragraph [ref=e137]: Creative Developer & UI/UX Designer
+                - generic [ref=e140]: Available
+            - generic [ref=e141]:
+              - generic [ref=e142]: React
+              - generic [ref=e143]: Next.js
+              - generic [ref=e144]: TypeScript
+              - generic [ref=e145]: Figma
+              - generic [ref=e146]: Tailwind CSS
+              - generic [ref=e147]: Node.js
+              - generic [ref=e148]: UI/UX
+    - region "What I do" [ref=e149]:
+      - generic [ref=e150]: 03 — Skills
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: What I do
+            - heading "Craft over convenience." [level=2] [ref=e155]:
+              - text: Craft over
+              - generic [ref=e156]: convenience.
+          - paragraph [ref=e157]: Not just mockups. Production-ready products built to last.
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - button "01 Product Design" [pressed] [ref=e160]:
+              - generic [ref=e162]:
+                - generic [ref=e163]: "01"
+                - generic [ref=e164]: Product Design
+              - img [ref=e165]
+            - button "02 Frontend Development" [ref=e167]:
+              - generic [ref=e169]:
+                - generic [ref=e170]: "02"
+                - generic [ref=e171]: Frontend Development
+              - img [ref=e172]
+            - button "03 Brand & Identity" [ref=e174]:
+              - generic [ref=e176]:
+                - generic [ref=e177]: "03"
+                - generic [ref=e178]: Brand & Identity
+              - img [ref=e179]
+            - button "04 Design Systems" [ref=e181]:
+              - generic [ref=e183]:
+                - generic [ref=e184]: "04"
+                - generic [ref=e185]: Design Systems
+              - img [ref=e186]
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - generic [ref=e190]: "01"
+              - img [ref=e192]
+            - generic [ref=e194]:
+              - heading "Product Design" [level=3] [ref=e195]
+              - paragraph [ref=e196]: End-to-end product design from research and wireframes to high-fidelity prototypes that developers can build directly from.
+              - generic [ref=e197]:
+                - generic [ref=e198]: Figma
+                - generic [ref=e199]: FigJam
+                - generic [ref=e200]: Protopie
+    - region "Portfolio — Selected work" [ref=e201]:
+      - generic [ref=e202]: 04 — Work
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - generic [ref=e206]: Selected work
+            - heading "Projects that define the work." [level=2] [ref=e207]:
+              - text: Projects that
+              - text: define the work.
+          - link "All projects" [ref=e208] [cursor=pointer]:
+            - /url: "#contact"
+            - text: All projects
+            - img [ref=e209]
+        - 'article "Featured: Kemia Skincare" [ref=e212]':
+          - generic [ref=e213]:
+            - img "Kemia Skincare" [ref=e214]
+            - generic [ref=e217]: Featured
+            - generic [ref=e219]:
+              - generic [ref=e220]:
+                - paragraph [ref=e221]: Brand Identity & Web · 2024
+                - heading "Kemia Skincare" [level=3] [ref=e222]
+              - img [ref=e224]
+        - generic [ref=e226]:
+          - article "Cascad Dashboard" [ref=e227] [cursor=pointer]:
+            - generic [ref=e228]: "01"
+            - generic [ref=e229]: Product Design
+            - heading "Cascad Dashboard" [level=3] [ref=e231]
+            - generic [ref=e232]: "2024"
+            - img [ref=e234]
+          - article "Interior Studio" [ref=e236] [cursor=pointer]:
+            - generic [ref=e237]: "02"
+            - generic [ref=e238]: Web Design & Dev
+            - heading "Interior Studio" [level=3] [ref=e240]
+            - generic [ref=e241]: "2023"
+            - img [ref=e243]
+          - article "Molekule Air Pro" [ref=e245] [cursor=pointer]:
+            - generic [ref=e246]: "03"
+            - generic [ref=e247]: Mobile App
+            - heading "Molekule Air Pro" [level=3] [ref=e249]
+            - generic [ref=e250]: "2023"
+            - img [ref=e252]
+          - article "Chocolat Brand" [ref=e254] [cursor=pointer]:
+            - generic [ref=e255]: "04"
+            - generic [ref=e256]: Brand & Packaging
+            - heading "Chocolat Brand" [level=3] [ref=e258]
+            - generic [ref=e259]: "2022"
+            - img [ref=e261]
+          - article "SecureHome App" [ref=e263] [cursor=pointer]:
+            - generic [ref=e264]: "05"
+            - generic [ref=e265]: Product Design
+            - heading "SecureHome App" [level=3] [ref=e267]
+            - generic [ref=e268]: "2022"
+            - img [ref=e270]
+    - region "Client testimonials" [ref=e272]:
+      - generic [ref=e273]: 05 — Voices
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - generic [ref=e277]: Client voices
+            - heading "What they say." [level=2] [ref=e278]:
+              - text: What they
+              - text: say.
+          - generic [ref=e279]:
+            - button "Previous testimonial" [disabled] [ref=e280]:
+              - img [ref=e281]
+            - button "Next testimonial" [ref=e283]:
+              - img [ref=e284]
+        - generic [ref=e286]:
+          - generic [ref=e288]: “
+          - blockquote [ref=e289]:
+            - paragraph [ref=e290]: Ashley completely transformed how our brand communicates. The new identity and website felt instantly ours — and our conversion rate went up 28% in the first quarter post-launch.
+            - generic [ref=e291]:
+              - generic [ref=e293]: S
+              - generic [ref=e294]:
+                - generic [ref=e295]: Sarah Chen
+                - generic [ref=e296]: CEO, Kemia Skincare
+        - tablist "Testimonial navigation" [ref=e297]:
+          - tab "Testimonial 1" [selected] [ref=e298]
+          - tab "Testimonial 2" [ref=e299]
+          - tab "Testimonial 3" [ref=e300]
+          - tab "Testimonial 4" [ref=e301]
+          - generic [ref=e302]: 01 / 04
+    - region "Blog — Latest articles" [ref=e303]:
+      - generic [ref=e304]: 06 — Blog
+      - generic [ref=e305]:
+        - generic [ref=e306]:
+          - generic [ref=e307]:
+            - generic [ref=e308]: Thinking out loud
+            - heading "Popular Publications." [level=2] [ref=e309]:
+              - text: Popular
+              - generic [ref=e310]: Publications.
+          - link "View all articles" [ref=e311] [cursor=pointer]:
+            - /url: "#blog"
+            - text: View all articles
+            - img [ref=e312]
+        - generic [ref=e314]:
+          - 'article "Article: Why Most SaaS Dashboards Fail on Mobile — and How to Fix It" [ref=e315] [cursor=pointer]':
+            - generic [ref=e316]:
+              - img "Why Most SaaS Dashboards Fail on Mobile — and How to Fix It" [ref=e317]
+              - generic [ref=e320]: Design
+            - generic [ref=e321]:
+              - time [ref=e322]: March 12, 2025
+              - generic [ref=e323]: ·
+              - generic [ref=e324]: 6 min read
+            - heading "Why Most SaaS Dashboards Fail on Mobile — and How to Fix It" [level=3] [ref=e325]
+            - paragraph [ref=e326]: 70% of enterprise users check their dashboards on mobile at least once a day. Yet most are built desktop-first, then squeezed down. Here's a better approach.
+            - link "Read more about Why Most SaaS Dashboards Fail on Mobile — and How to Fix It" [ref=e327]:
+              - /url: "#blog/b1"
+              - generic [ref=e328]: Read more
+              - img [ref=e329]
+          - 'article "Article: Building a Design System with Tailwind CSS and TypeScript in 2025" [ref=e331] [cursor=pointer]':
+            - generic [ref=e332]:
+              - img "Building a Design System with Tailwind CSS and TypeScript in 2025" [ref=e333]
+              - generic [ref=e336]: Development
+            - generic [ref=e337]:
+              - time [ref=e338]: January 28, 2025
+              - generic [ref=e339]: ·
+              - generic [ref=e340]: 9 min read
+            - heading "Building a Design System with Tailwind CSS and TypeScript in 2025" [level=3] [ref=e341]
+            - paragraph [ref=e342]: A practical guide to token-based design systems that scale — without the overhead of a dedicated toolchain or six-figure design platform.
+            - link "Read more about Building a Design System with Tailwind CSS and TypeScript in 2025" [ref=e343]:
+              - /url: "#blog/b2"
+              - generic [ref=e344]: Read more
+              - img [ref=e345]
+    - region "Contact — Get in touch" [ref=e347]:
+      - generic [ref=e348]: 07 — Contact
+      - generic [ref=e349]:
+        - generic [ref=e350]:
+          - generic [ref=e351]: Get in touch
+          - generic [ref=e352]:
+            - heading "Let's Build Something Great." [level=2] [ref=e353]:
+              - text: Let's Build
+              - generic [ref=e354]: Something Great.
+            - paragraph [ref=e355]: Have a project in mind? I'd love to hear about it. Send me a message and I'll get back within 24 hours.
+        - generic [ref=e356]:
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - generic [ref=e360]:
+                - generic [ref=e361]: Your name
+                - textbox "Your name" [ref=e362]:
+                  - /placeholder: Alex Johnson
+              - generic [ref=e363]:
+                - generic [ref=e364]: Email address
+                - textbox "Email address" [ref=e365]:
+                  - /placeholder: alex@company.com
+            - generic [ref=e366]:
+              - generic [ref=e367]: Project type
+              - textbox "Project type" [ref=e368]:
+                - /placeholder: Website redesign, mobile app, brand identity...
+            - generic [ref=e369]:
+              - generic [ref=e370]: Message
+              - textbox "Message" [ref=e371]:
+                - /placeholder: Tell me about your project, timeline, and budget...
+            - button "Send message" [ref=e372]:
+              - text: Send message
+              - img [ref=e373]
+          - generic [ref=e375]:
+            - generic [ref=e376]:
+              - heading "Direct contact" [level=3] [ref=e377]
+              - link "hello@ashley.design" [ref=e378] [cursor=pointer]:
+                - /url: mailto:hello@ashley.design
+              - link "+62 812 3456 7890" [ref=e379] [cursor=pointer]:
+                - /url: tel:+6281234567890
+            - generic [ref=e380]:
+              - heading "Based in" [level=3] [ref=e381]
+              - paragraph [ref=e382]: Jakarta, Indonesia
+              - paragraph [ref=e383]: GMT+7 · WIB
+            - generic [ref=e384]:
+              - generic [ref=e387]: Available for projects
+              - paragraph [ref=e388]: Currently accepting new client work for Q3 2025. Response time is typically under 24 hours.
+            - generic [ref=e389]:
+              - heading "Find me online" [level=3] [ref=e390]
+              - generic [ref=e391]:
+                - link "Dribbble" [ref=e392] [cursor=pointer]:
+                  - /url: https://dribbble.com
+                  - generic [ref=e393]: Dribbble
+                  - img [ref=e394]
+                - link "GitHub" [ref=e396] [cursor=pointer]:
+                  - /url: https://github.com/sayu0044
+                  - generic [ref=e397]: GitHub
+                  - img [ref=e398]
+                - link "LinkedIn" [ref=e400] [cursor=pointer]:
+                  - /url: https://linkedin.com
+                  - generic [ref=e401]: LinkedIn
+                  - img [ref=e402]
+                - link "Twitter" [ref=e404] [cursor=pointer]:
+                  - /url: https://twitter.com
+                  - generic [ref=e405]: Twitter
+                  - img [ref=e406]
+  - contentinfo "Site footer" [ref=e408]:
+    - generic [ref=e410]:
+      - generic [ref=e411]:
+        - generic [ref=e412]:
+          - generic [ref=e413]: S.
+          - paragraph [ref=e414]: Designing and building digital products that bridge aesthetics and functionality.
+          - generic [ref=e415]:
+            - textbox "Email for newsletter" [ref=e416]:
+              - /placeholder: Your email address
+            - button "Subscribe to newsletter" [ref=e417]: →
+        - generic [ref=e418]:
+          - heading "Navigate" [level=3] [ref=e419]
+          - navigation "Footer navigation" [ref=e420]:
+            - list [ref=e421]:
+              - listitem [ref=e422]:
+                - link "Home" [ref=e423] [cursor=pointer]:
+                  - /url: "#home"
+              - listitem [ref=e424]:
+                - link "About" [ref=e425] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e426]:
+                - link "Skills" [ref=e427] [cursor=pointer]:
+                  - /url: "#skills"
+              - listitem [ref=e428]:
+                - link "Work" [ref=e429] [cursor=pointer]:
+                  - /url: "#work"
+              - listitem [ref=e430]:
+                - link "Blog" [ref=e431] [cursor=pointer]:
+                  - /url: "#blog"
+              - listitem [ref=e432]:
+                - link "Contact" [ref=e433] [cursor=pointer]:
+                  - /url: "#contact"
+        - generic [ref=e434]:
+          - heading "Contact" [level=3] [ref=e435]
+          - generic [ref=e436]:
+            - paragraph [ref=e437]: Jakarta, Indonesia
+            - link "hello@ashley.design" [ref=e438] [cursor=pointer]:
+              - /url: mailto:hello@ashley.design
+            - link "+62 812 3456 7890" [ref=e439] [cursor=pointer]:
+              - /url: tel:+6281234567890
+          - generic [ref=e440]:
+            - link "Dribbble" [ref=e441] [cursor=pointer]:
+              - /url: https://dribbble.com
+              - img [ref=e442]
+            - link "GitHub" [ref=e444] [cursor=pointer]:
+              - /url: https://github.com/sayu0044
+              - img [ref=e445]
+            - link "LinkedIn" [ref=e447] [cursor=pointer]:
+              - /url: https://linkedin.com
+              - img [ref=e448]
+            - link "Twitter" [ref=e450] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e451]
+      - generic [ref=e453]:
+        - paragraph [ref=e454]: © 2026 Ashley. All rights reserved.
+        - generic [ref=e455]:
+          - link "Privacy Policy" [ref=e456] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=e457] [cursor=pointer]:
+            - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e463] [cursor=pointer]:
+    - img [ref=e464]

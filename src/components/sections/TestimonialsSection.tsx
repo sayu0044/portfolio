@@ -5,12 +5,16 @@ import { testimonials } from "@/lib/data";
 import { useScrollReveal } from "@/components/hooks/useScrollReveal";
 
 export default function TestimonialsSection() {
-  const sectionRef = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+  const sectionRef = useScrollReveal<HTMLDivElement>({ threshold: 0.08 });
   const [activeIdx, setActiveIdx] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  // Touch swipe support
   const touchStartX = useRef<number | null>(null);
+  const active = testimonials[activeIdx];
+
+  const prev = useCallback(() => setActiveIdx((i) => Math.max(i - 1, 0)), []);
+  const next = useCallback(
+    () => setActiveIdx((i) => Math.min(i + 1, testimonials.length - 1)),
+    [],
+  );
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -22,136 +26,175 @@ export default function TestimonialsSection() {
       const dx = e.changedTouches[0].clientX - touchStartX.current;
       if (Math.abs(dx) > 40) {
         if (dx < 0) {
-          setActiveIdx((i) => Math.min(i + 1, testimonials.length - 1));
+          next();
         } else {
-          setActiveIdx((i) => Math.max(i - 1, 0));
+          prev();
         }
       }
       touchStartX.current = null;
     },
-    []
+    [next, prev],
   );
 
   return (
     <section
       id="testimonials"
-      className="bg-[#f2f2f2] relative overflow-hidden"
+      className="relative bg-[#0c0c0c] overflow-hidden"
       aria-label="Client testimonials"
     >
+      {/* Subtle center glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(250,235,215,0.05) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Section index */}
+      <div
+        className="absolute top-10 right-6 lg:right-12 text-[9px] text-white/10 tracking-[0.3em] uppercase select-none"
+        style={{ fontFamily: "monospace" }}
+        aria-hidden="true"
+      >
+        05 — Voices
+      </div>
+
       <div
         ref={sectionRef}
-        className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-12 py-20 md:py-28 lg:py-36"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-5 md:px-7 lg:px-10 pt-14 md:pt-22 lg:pt-28 pb-14 md:pb-20"
       >
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="reveal mb-6 justify-center">
-            <span className="suptitle text-black/40 justify-center">
+        {/* Header row — label left, counter right */}
+        <div className="reveal flex items-end justify-between gap-5 mb-10 md:mb-16 pb-7 md:pb-8 border-b border-white/5">
+          <div>
+            <span className="suptitle text-white/25 block mb-6">
               Client voices
             </span>
-          </div>
-          <h2
-            className="reveal text-[clamp(1.8rem,6vw,3.2rem)] font-light leading-[1.15] tracking-tight text-black"
-            style={{ fontFamily: "var(--font-primary)" }}
-          >
-            What Clients
-            <br />
-            <span className="font-semibold">Say About Working With Me</span>
-          </h2>
-        </div>
-
-        {/* Slider */}
-        <div className="reveal max-w-2xl mx-auto">
-          {/* Quote mark */}
-          <div className="flex justify-center mb-8" aria-hidden="true">
-            <svg viewBox="0 0 48 48" className="w-10 h-10 text-black/10 fill-current">
-              <path d="M13.5 10A8.5 8.5 0 0 0 13.5 27a8.5 8.5 0 0 0 4.791-1.48C17.422 29.223 15.878 31.803 14.357 33.59 12.068 36.279 9.943 37.107 9.943 37.107a1.5 1.5 0 1 0 1.113 2.785c0 0 2.875-1.172 5.586-4.357C19.354 32.35 22 27.073 22 19a1.5 1.5 0 0 0-1.016-1.219A8.5 8.5 0 0 0 13.5 10zm21 0A8.5 8.5 0 0 0 34.5 27a8.5 8.5 0 0 0 4.791-1.48C38.422 29.223 36.878 31.803 35.357 33.59 33.068 36.279 30.943 37.107 30.943 37.107a1.5 1.5 0 1 0 1.113 2.785c0 0 2.875-1.172 5.586-4.357C40.354 32.35 43 27.073 43 19a1.5 1.5 0 0 0-1.016-1.219A8.5 8.5 0 0 0 34.5 10z" />
-            </svg>
-          </div>
-
-          {/* Testimonial slider */}
-          <div
-            className="testimonial-slider select-none"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            aria-live="polite"
-            aria-label="Testimonial slider — swipe to navigate"
-          >
-            <div
-              ref={trackRef}
-              className="testimonial-track"
-              style={{ transform: `translateX(-${activeIdx * 100}%)` }}
+            <h2
+              className="text-[clamp(1.9rem,9vw,3.8rem)] font-light leading-[1.05] tracking-tight text-white"
+              style={{ fontFamily: "var(--font-primary)" }}
             >
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  className="testimonial-slide px-2"
-                  aria-hidden={i !== activeIdx}
-                >
-                  <blockquote className="text-center">
-                    <p className="text-black/70 text-lg md:text-xl leading-relaxed font-light mb-8 italic">
-                      &ldquo;{t.text}&rdquo;
-                    </p>
-                    <footer>
-                      <cite className="not-italic">
-                        <span className="text-black font-semibold text-sm block">
-                          {t.name}
-                        </span>
-                        <span className="text-black/40 text-xs tracking-wide mt-1 block uppercase">
-                          {t.role}
-                        </span>
-                      </cite>
-                    </footer>
-                  </blockquote>
-                </div>
-              ))}
-            </div>
+              What they
+              <br />
+              <span className="font-semibold">say.</span>
+            </h2>
           </div>
 
-          {/* Pagination dots + arrows */}
-          <div className="flex items-center justify-center gap-6 mt-10">
+          {/* Nav controls — top right */}
+          <div className="flex items-center gap-2 md:gap-3 mb-1">
             <button
-              onClick={() => setActiveIdx((i) => Math.max(i - 1, 0))}
+              onClick={prev}
               disabled={activeIdx === 0}
-              className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center text-black/40 hover:text-black hover:border-black/30 disabled:opacity-30 transition-all touch-manipulation"
+              className="w-11 h-11 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 disabled:opacity-20 transition-all"
               aria-label="Previous testimonial"
             >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" aria-hidden="true">
-                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-4 h-4"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                  clipRule="evenodd"
+                />
               </svg>
             </button>
-
-            <div className="flex items-center gap-2" role="tablist" aria-label="Testimonial navigation">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  role="tab"
-                  aria-selected={i === activeIdx}
-                  aria-label={`Testimonial ${i + 1}`}
-                  onClick={() => setActiveIdx(i)}
-                  className={`
-                    rounded-full transition-all duration-300 touch-manipulation
-                    ${i === activeIdx
-                      ? "w-6 h-2 bg-accent"
-                      : "w-2 h-2 bg-black/20 hover:bg-black/40"
-                    }
-                  `}
-                />
-              ))}
-            </div>
-
             <button
-              onClick={() =>
-                setActiveIdx((i) => Math.min(i + 1, testimonials.length - 1))
-              }
+              onClick={next}
               disabled={activeIdx === testimonials.length - 1}
-              className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center text-black/40 hover:text-black hover:border-black/30 disabled:opacity-30 transition-all touch-manipulation"
+              className="w-11 h-11 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 disabled:opacity-20 transition-all"
               aria-label="Next testimonial"
             >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" aria-hidden="true">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-4 h-4"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
               </svg>
             </button>
           </div>
+        </div>
+
+        {/* ── Testimonial body ─────────────────────────────── */}
+        <div
+          className="reveal"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          aria-live="polite"
+        >
+          {/* Large opening quote mark */}
+          <div
+            data-motion="parallax"
+            className="mb-8 md:mb-12"
+            aria-hidden="true"
+          >
+            <span className="text-accent/20 text-[4.5rem] md:text-[7.5rem] font-semibold leading-none select-none block -mb-7 md:-mb-12">
+              &ldquo;
+            </span>
+          </div>
+
+          {/* Quote text — large editorial type */}
+          <blockquote key={activeIdx}>
+            <p
+              className="text-white/72 text-[clamp(1.08rem,5vw,2.15rem)] font-light leading-normal tracking-tight mb-8 md:mb-11 max-w-3xl"
+              style={{ fontFamily: "var(--font-primary)" }}
+            >
+              {active.text}
+            </p>
+
+            {/* Author */}
+            <footer className="flex items-center gap-4">
+              {/* Initials avatar */}
+              <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                <span className="text-accent text-xs font-semibold">
+                  {active.name.charAt(0)}
+                </span>
+              </div>
+              <cite className="not-italic">
+                <span className="text-white text-sm font-medium block">
+                  {active.name}
+                </span>
+                <span className="text-white/30 text-xs tracking-widest uppercase mt-0.5 block">
+                  {active.role}
+                </span>
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+
+        {/* Progress indicator */}
+        <div
+          className="mt-10 md:mt-12 flex items-center gap-3"
+          role="tablist"
+          aria-label="Testimonial navigation"
+        >
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              role="tab"
+              aria-selected={i === activeIdx}
+              aria-label={`Testimonial ${i + 1}`}
+              onClick={() => setActiveIdx(i)}
+              className={`h-0.5 rounded-full transition-all duration-400 ${
+                i === activeIdx
+                  ? "w-8 bg-accent"
+                  : "w-4 bg-white/15 hover:bg-white/30"
+              }`}
+            />
+          ))}
+          <span className="ml-auto text-white/18 text-[11px] tabular-nums tracking-widest">
+            {String(activeIdx + 1).padStart(2, "0")} /{" "}
+            {String(testimonials.length).padStart(2, "0")}
+          </span>
         </div>
       </div>
     </section>

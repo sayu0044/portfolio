@@ -21,8 +21,8 @@ const config: Config = {
         black: "#000000",
         "off-black": "#0a0a0a",
         "soft-bg": "#f2f2f2",
-        accent: "#FF9800",
-        "accent-dark": "#e68900",
+        accent: "#faebd7",
+        "accent-dark": "#ead7bf",
         // Text hierarchy
         "white-90": "rgba(255,255,255,0.9)",
         "white-40": "rgba(255,255,255,0.4)",

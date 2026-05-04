@@ -22,28 +22,40 @@ const SocialIcon = ({ icon }: { icon: string }) => {
 
 export default function Footer() {
   return (
-    <footer className="bg-black relative overflow-hidden" aria-label="Site footer">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <footer
+      className="bg-[#050505] relative overflow-hidden"
+      aria-label="Site footer"
+    >
+      {/* Top divider — subtle */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6" />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-7 lg:px-12 pt-14 pb-8 md:pt-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 pb-12 border-b border-white/10">
+      <div className="max-w-300 mx-auto px-4 sm:px-5 md:px-7 lg:px-10 pt-12 pb-8 md:pt-16">
+        {/* Main footer grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pb-9 md:pb-10 border-b border-white/6">
+          {/* Brand column */}
           <div className="lg:col-span-2">
-            <div className="text-white text-2xl font-semibold tracking-tight mb-4">
+            <div
+              className="text-white text-2xl font-semibold tracking-tight mb-4"
+              style={{ fontFamily: "var(--font-primary)" }}
+            >
               {personal.logo}
             </div>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
-              Designing and building digital products that bridge aesthetics and functionality.
+            <p className="text-white/30 text-sm leading-relaxed max-w-xs mb-6 font-light">
+              Designing and building digital products that bridge aesthetics and
+              functionality.
             </p>
-            <div className="subscribe-form max-w-xs">
+
+            {/* Subscribe — minimal inline */}
+            <div className="flex items-center rounded-full border border-white/8 bg-white/3 px-4 py-2 max-w-xs">
               <input
                 type="email"
-                className="subscribe-input"
+                className="w-full bg-transparent text-sm text-white placeholder:text-white/20 outline-none font-light"
                 placeholder="Your email address"
                 aria-label="Email for newsletter"
               />
               <button
                 type="button"
-                className="subscribe-btn"
+                className="ml-2 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-black font-semibold transition-colors hover:bg-accent-dark"
                 aria-label="Subscribe to newsletter"
               >
                 &rarr;
@@ -51,8 +63,9 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Navigate column */}
           <div>
-            <h3 className="text-white/60 text-xs tracking-widest uppercase font-medium mb-5">
+            <h3 className="text-white/20 text-[10px] tracking-[0.2em] uppercase font-medium mb-5">
               Navigate
             </h3>
             <nav aria-label="Footer navigation">
@@ -61,7 +74,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-white/40 text-sm hover:text-accent transition-colors"
+                      className="text-white/35 text-sm hover:text-accent transition-colors font-light"
                     >
                       {link.label}
                     </Link>
@@ -71,21 +84,24 @@ export default function Footer() {
             </nav>
           </div>
 
+          {/* Contact column */}
           <div>
-            <h3 className="text-white/60 text-xs tracking-widest uppercase font-medium mb-5">
+            <h3 className="text-white/20 text-[10px] tracking-[0.2em] uppercase font-medium mb-5">
               Contact
             </h3>
             <address className="not-italic space-y-3">
-              <p className="text-white/40 text-sm">{personal.location}</p>
+              <p className="text-white/35 text-sm font-light">
+                {personal.location}
+              </p>
               <a
                 href={`mailto:${personal.email}`}
-                className="block text-white/40 text-sm hover:text-accent transition-colors"
+                className="block text-white/35 text-sm hover:text-accent transition-colors font-light"
               >
                 {personal.email}
               </a>
               <a
                 href={`tel:${personal.phone.replace(/\s/g, "")}`}
-                className="block text-white/40 text-sm hover:text-accent transition-colors"
+                className="block text-white/35 text-sm hover:text-accent transition-colors font-light"
               >
                 {personal.phone}
               </a>
@@ -98,7 +114,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/30 hover:text-accent transition-colors p-1"
+                  className="text-white/25 hover:text-accent transition-colors p-1"
                   aria-label={s.label}
                 >
                   <SocialIcon icon={s.icon} />
@@ -108,15 +124,23 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
-          <p className="text-white/25 text-xs order-2 sm:order-1">
-            (c) {new Date().getFullYear()} {personal.name}. All rights reserved.
+          <p className="text-white/18 text-xs order-2 sm:order-1">
+            &copy; {new Date().getFullYear()} {personal.name}. All rights
+            reserved.
           </p>
           <div className="flex items-center gap-5 order-1 sm:order-2">
-            <Link href="/privacy" className="text-white/25 text-xs hover:text-white/50 transition-colors">
+            <Link
+              href="/privacy"
+              className="text-white/18 text-xs hover:text-white/40 transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-white/25 text-xs hover:text-white/50 transition-colors">
+            <Link
+              href="/terms"
+              className="text-white/18 text-xs hover:text-white/40 transition-colors"
+            >
               Terms
             </Link>
           </div>

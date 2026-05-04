@@ -11,39 +11,67 @@ export default function BlogSection() {
   return (
     <section
       id="blog"
-      className="bg-white relative"
+      className="relative bg-[#080808] overflow-hidden"
       aria-label="Blog — Latest articles"
     >
+      {/* Subtle accent glow — bottom right */}
+      <div
+        className="absolute -bottom-40 -right-40 w-125 h-125 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(250,235,215,0.06) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Section index */}
+      <div
+        className="absolute top-10 right-6 lg:right-12 text-[9px] text-white/10 tracking-[0.3em] uppercase select-none"
+        style={{ fontFamily: "monospace" }}
+        aria-hidden="true"
+      >
+        06 — Blog
+      </div>
+
       <div
         ref={sectionRef}
-        className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-12 py-20 md:py-28"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-5 md:px-7 lg:px-10 pt-14 md:pt-22 lg:pt-28 pb-14 md:pb-20"
       >
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 md:mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-9 md:mb-14 pb-7 md:pb-10 border-b border-white/5">
           <div>
-            <div className="reveal mb-6">
-              <span className="suptitle text-black/40">Thinking out loud</span>
-            </div>
+            <span className="reveal suptitle text-white/25 block mb-6">
+              Thinking out loud
+            </span>
             <h2
-              className="reveal text-[clamp(1.8rem,5vw,3rem)] font-light leading-[1.15] tracking-tight text-black"
+              className="reveal text-[clamp(1.9rem,9vw,3.8rem)] font-light leading-[1.05] tracking-tight text-white"
               style={{ fontFamily: "var(--font-primary)" }}
             >
-              Popular <span className="font-semibold">Publications</span>
+              Popular
+              <br />
+              <span className="font-semibold">
+                Publications<span className="text-accent">.</span>
+              </span>
             </h2>
           </div>
           <Link
             href="#blog"
-            className="reveal shrink-0 text-sm text-black/45 hover:text-accent transition-colors flex items-center gap-2 group"
+            className="reveal shrink-0 group inline-flex items-center gap-2 text-xs text-white/30 hover:text-accent transition-colors tracking-widest uppercase"
           >
             View all articles
-            <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true">
-              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            >
+              <path d="M3 8a.5.5 0 0 1 .5-.5h7.793L8.146 4.354a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L11.293 8.5H3.5A.5.5 0 0 1 3 8z" />
             </svg>
           </Link>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8">
           {blogPosts.map((post, i) => (
             <article
               key={post.id}
@@ -51,7 +79,10 @@ export default function BlogSection() {
               aria-label={`Article: ${post.title}`}
             >
               {/* Cover image */}
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-soft-bg mb-5">
+              <div
+                data-motion="scale"
+                className="relative w-full aspect-video rounded-xl overflow-hidden bg-white/3 border border-white/6 mb-5"
+              >
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -60,40 +91,57 @@ export default function BlogSection() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
                 />
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Category badge — overlaid on image */}
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center gap-2 bg-accent/10 border border-accent/25 rounded-full px-3 py-1 text-accent text-[10px] tracking-widest uppercase font-medium">
+                    {post.category}
+                  </span>
+                </div>
               </div>
 
-              {/* Meta */}
+              {/* Meta row */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-accent text-xs font-medium uppercase tracking-widest">
-                  {post.category}
-                </span>
-                <span className="text-black/20 text-xs">·</span>
-                <time className="text-black/35 text-xs" dateTime={post.date}>
+                <time
+                  className="text-white/30 text-xs tracking-wide"
+                  dateTime={post.date}
+                >
                   {post.date}
                 </time>
-                <span className="text-black/20 text-xs">·</span>
-                <span className="text-black/35 text-xs">{post.readTime} read</span>
+                <span className="text-white/10 text-xs" aria-hidden="true">
+                  ·
+                </span>
+                <span className="text-white/30 text-xs tracking-wide">
+                  {post.readTime} read
+                </span>
               </div>
 
               {/* Title */}
-              <h3 className="text-black text-lg md:text-xl font-medium leading-snug mb-3 group-hover:text-accent transition-colors">
+              <h3 className="text-white/80 text-lg md:text-xl font-medium leading-snug mb-3 group-hover:text-white transition-colors tracking-tight">
                 {post.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="text-black/50 text-sm leading-relaxed mb-5 line-clamp-3">
+              <p className="text-white/30 text-sm leading-relaxed mb-5 line-clamp-3">
                 {post.excerpt}
               </p>
 
               {/* Read link */}
               <Link
                 href={`#blog/${post.id}`}
-                className="inline-flex items-center gap-2 text-sm text-black/50 hover:text-accent transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs text-white/25 hover:text-accent transition-colors tracking-widest uppercase group/link"
                 aria-label={`Read more about ${post.title}`}
               >
                 <span>Read more</span>
-                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="w-3 h-3 group-hover/link:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                >
+                  <path d="M3 8a.5.5 0 0 1 .5-.5h7.793L8.146 4.354a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L11.293 8.5H3.5A.5.5 0 0 1 3 8z" />
                 </svg>
               </Link>
             </article>

@@ -23,7 +23,7 @@ const SocialIcon = ({ icon }: { icon: string }) => {
     ),
     linkedin: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 .774 1.729 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
     twitter: (
@@ -71,17 +71,27 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Navigation menu"
       >
         {/* Close tap area at top */}
-        <div className="flex justify-between items-center mb-10 md:mb-14">
-          <span className="text-white/40 text-xs tracking-widest uppercase font-medium">
+        <div className="flex justify-between items-center mb-8 md:mb-12">
+          <span className="text-white/20 text-[10px] tracking-[0.2em] uppercase font-medium">
             Menu
           </span>
           <button
             onClick={onClose}
-            className="text-white/60 hover:text-white transition-colors p-2 -mr-2"
+            className="min-h-11 min-w-11 text-white/50 hover:text-white transition-colors p-2 -mr-2"
             aria-label="Close menu"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -98,7 +108,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="block py-3 text-[2rem] md:text-5xl font-light text-white hover:text-accent transition-colors tracking-tight leading-none"
+                  className="block py-3.5 text-[2.35rem] md:text-5xl font-light text-white/80 hover:text-accent transition-colors tracking-tight leading-none"
                   style={{ fontFamily: "var(--font-primary)" }}
                 >
                   {link.label}
@@ -109,9 +119,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         {/* Footer row */}
-        <div className="mt-auto pt-8 border-t border-white/10">
+        <div className="mt-auto pt-8 border-t border-white/7">
           <div className="flex items-center justify-between">
-            <p className="text-white/30 text-xs">
+            <p className="text-white/25 text-xs">
               {personal.availableForWork && (
                 <span className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -127,7 +137,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/40 hover:text-accent transition-colors p-1"
+                  className="text-white/30 hover:text-accent transition-colors p-1"
                   aria-label={s.label}
                 >
                   <SocialIcon icon={s.icon} />

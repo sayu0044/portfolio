@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 :root {
   --font-primary: var(--font-outfit), "Outfit", "Poppins", "Segoe UI", sans-serif;
@@ -22,11 +21,25 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background: #000;
+  background: #050505;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.45;
+}
+
+/* Film grain overlay — ties all sections together visually */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
 }
 
 a {
@@ -36,11 +49,15 @@ a {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[0.78rem] uppercase tracking-[0.12em] text-black font-semibold transition-all duration-300 hover:bg-accent-dark;
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-4.5 py-2.25 text-[0.73rem] uppercase tracking-[0.11em] text-black font-semibold transition-all duration-300 hover:bg-accent-dark;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-[0.78rem] uppercase tracking-[0.12em] text-white/80 transition-all duration-300 hover:border-white/50 hover:text-white;
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 px-4.5 py-2.25 text-[0.73rem] uppercase tracking-[0.11em] text-white/80 transition-all duration-300 hover:border-white/50 hover:text-white;
+  }
+
+  .btn-ghost-dark {
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-black/15 px-4.5 py-2.25 text-[0.73rem] uppercase tracking-[0.11em] text-black/60 transition-all duration-300 hover:border-black/40 hover:text-black;
   }
 
   .suptitle {
@@ -52,22 +69,50 @@ a {
     @apply block h-px w-8 bg-current opacity-40;
   }
 
+  /* Standard reveal — translateY */
   .reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: opacity, transform;
+    transition: opacity 0.38s ease, transform 0.38s ease;
   }
 
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
   }
 
-  .reveal-delay-1 { transition-delay: 0.08s; }
-  .reveal-delay-2 { transition-delay: 0.16s; }
-  .reveal-delay-3 { transition-delay: 0.24s; }
-  .reveal-delay-4 { transition-delay: 0.32s; }
+  /* Reveal from left */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-22px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: opacity, transform;
+    transition: opacity 0.38s ease, transform 0.38s ease;
+  }
 
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+    will-change: auto;
+  }
+
+  [data-motion] {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  .reveal-delay-1 { transition-delay: 0.03s; }
+  .reveal-delay-2 { transition-delay: 0.06s; }
+  .reveal-delay-3 { transition-delay: 0.09s; }
+  .reveal-delay-4 { transition-delay: 0.12s; }
+
+  /* Skill bar */
   .skill-bar-track {
     @apply h-1.5 rounded-full bg-black/10 overflow-hidden;
   }
@@ -78,10 +123,36 @@ a {
     transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .reveal.visible .skill-bar-fill.animate {
-    transform: scaleX(var(--tw-scale-x, 0));
+  /* Project list — light bg sections */
+  .project-list-item {
+    @apply relative flex items-center gap-4 md:gap-5 py-4.5 md:py-5 border-b border-white/[0.07] cursor-pointer;
+    z-index: 1;
+    transition: background-color 0.2s ease;
   }
 
+  .project-list-item:hover {
+    z-index: 10;
+  }
+
+  /* Hover image reveal (desktop only) */
+  .project-hover-thumb {
+    @apply hidden lg:block absolute pointer-events-none rounded-xl overflow-hidden;
+    width: 216px;
+    height: 136px;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.93);
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: 20;
+  }
+
+  .project-list-item:hover .project-hover-thumb {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  /* Legacy project card (kept for compatibility) */
   .project-card-img {
     @apply object-cover transition-transform duration-500;
   }
@@ -91,13 +162,14 @@ a {
   }
 
   .project-card-overlay {
-    @apply absolute inset-0 p-4 md:p-5 flex items-end justify-between gap-3 bg-gradient-to-t from-black/90 via-black/35 to-transparent opacity-100 md:opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 p-4 md:p-5 flex items-end justify-between gap-3 bg-linear-to-t from-black/90 via-black/35 to-transparent opacity-100 md:opacity-0 transition-opacity duration-300;
   }
 
   .project-card:hover .project-card-overlay {
     @apply opacity-100;
   }
 
+  /* Testimonial slider */
   .testimonial-slider {
     @apply overflow-hidden;
   }
@@ -110,6 +182,7 @@ a {
     min-width: 100%;
   }
 
+  /* Subscribe form */
   .subscribe-form {
     @apply flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2;
   }
@@ -119,9 +192,10 @@ a {
   }
 
   .subscribe-btn {
-    @apply ml-2 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-accent text-black font-semibold transition-colors hover:bg-accent-dark;
+    @apply ml-2 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-black font-semibold transition-colors hover:bg-accent-dark;
   }
 
+  /* Hamburger */
   .hamburger-line {
     @apply block h-px w-5 bg-current transition-all duration-300;
   }
@@ -138,8 +212,9 @@ a {
     transform: translateY(-6px) rotate(-45deg);
   }
 
+  /* Mobile menu overlay */
   .mobile-menu-overlay {
-    @apply fixed inset-0 z-[60] bg-black/95 backdrop-blur-md p-5 pt-20 flex flex-col;
+    @apply fixed inset-0 z-60 bg-[#050505] p-5 pt-20 flex flex-col;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-8px);
@@ -156,8 +231,9 @@ a {
     animation: menuIn 0.4s ease both;
   }
 
+  /* Scroll progress */
   .mil-progress-track {
-    @apply fixed left-0 top-0 z-[70] h-[2px] w-full bg-white/10;
+    @apply fixed left-0 top-0 z-70 h-0.5 w-full bg-white/10;
   }
 
   .mil-progress {
@@ -165,6 +241,27 @@ a {
   }
 }
 
+/* ─── Marquee ───────────────────────────────────────────── */
+.marquee-container {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Orbs ──────────────────────────────────────────────── */
 .orb-container {
   position: absolute;
   inset: 0;
@@ -175,69 +272,59 @@ a {
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(36px);
-  opacity: 0.17;
+  filter: blur(24px);
+  opacity: 0.12;
 }
 
 .orb-1 {
-  width: 260px;
-  height: 260px;
-  background: #ff9800;
-  top: 12%;
-  left: -90px;
+  width: 230px; height: 230px;
+  background: #faebd7;
+  top: 12%; left: -90px;
   animation: orb1 12s ease-in-out infinite;
 }
 
 .orb-2 {
-  width: 210px;
-  height: 210px;
+  width: 190px; height: 190px;
   background: #ffffff;
-  top: 38%;
-  right: -90px;
+  top: 38%; right: -90px;
   animation: orb2 16s ease-in-out infinite;
 }
 
 .orb-3 {
-  width: 180px;
-  height: 180px;
-  background: #ff9800;
-  bottom: -60px;
-  left: 35%;
+  width: 160px; height: 160px;
+  background: #faebd7;
+  bottom: -60px; left: 35%;
   animation: orb3 20s ease-in-out infinite;
 }
 
 @keyframes orb1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(60px, -40px) scale(1.2); }
-  66% { transform: translate(-30px, 50px) scale(0.9); }
+  33%       { transform: translate(60px, -40px) scale(1.2); }
+  66%       { transform: translate(-30px, 50px) scale(0.9); }
 }
 
 @keyframes orb2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-50px, 30px) scale(1.1); }
-  75% { transform: translate(40px, -60px) scale(0.8); }
+  25%       { transform: translate(-50px, 30px) scale(1.1); }
+  75%       { transform: translate(40px, -60px) scale(0.8); }
 }
 
 @keyframes orb3 {
   0%, 100% { transform: translate(0, 0) scale(1.2); }
-  50% { transform: translate(20px, 40px) scale(0.7); }
+  50%       { transform: translate(20px, 40px) scale(0.7); }
 }
 
 @keyframes menuIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Responsive ────────────────────────────────────────── */
 @media (min-width: 768px) {
   .btn-primary,
-  .btn-ghost {
-    padding: 0.72rem 1.4rem;
+  .btn-ghost,
+  .btn-ghost-dark {
+    padding: 0.64rem 1.2rem;
   }
 
   .suptitle {
@@ -249,58 +336,33 @@ a {
     padding-top: 6.2rem;
   }
 
-  .orb-1 {
-    width: 320px;
-    height: 320px;
-    left: -80px;
-  }
-
-  .orb-2 {
-    width: 250px;
-    height: 250px;
-    right: -70px;
-  }
-
-  .orb-3 {
-    width: 210px;
-    height: 210px;
-  }
+  .orb-1 { width: 280px; height: 280px; left: -80px; }
+  .orb-2 { width: 220px; height: 220px; right: -70px; }
+  .orb-3 { width: 185px; height: 185px; }
 }
 
 @media (min-width: 1024px) {
-  .project-card-overlay {
-    opacity: 0;
-  }
-
-  .mobile-menu-overlay {
-    display: none;
-  }
-
-  .orb-1 {
-    width: 340px;
-    height: 340px;
-  }
-
-  .orb-2 {
-    width: 260px;
-    height: 260px;
-  }
-
-  .orb-3 {
-    width: 220px;
-    height: 220px;
-  }
+  .project-card-overlay { opacity: 0; }
+  .mobile-menu-overlay  { display: none; }
+  .orb-1 { width: 300px; height: 300px; }
+  .orb-2 { width: 230px; height: 230px; }
+  .orb-3 { width: 195px; height: 195px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation: none !important;
     transition: none !important;
   }
+
+  .reveal,
+  .reveal-left {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
+/* ─── Preloader ─────────────────────────────────────────── */
 .mil-preloader {
   position: fixed;
   inset: 0;
@@ -339,37 +401,21 @@ a {
   letter-spacing: 0.01em;
 }
 
-.mil-muted {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.mil-thin {
-  font-weight: 300;
-}
+.mil-muted   { color: rgba(255, 255, 255, 0.78); }
+.mil-thin    { font-weight: 300; }
 
 .mil-animation-1 .mil-h3 {
   opacity: 0;
   transform: translateY(10px);
   animation: milTextIn 0.42s ease forwards;
 }
-
-.mil-animation-1 .mil-h3:nth-child(1) {
-  animation-delay: 0.15s;
-}
-
-.mil-animation-1 .mil-h3:nth-child(2) {
-  animation-delay: 0.34s;
-}
-
-.mil-animation-1 .mil-h3:nth-child(3) {
-  animation-delay: 0.53s;
-}
-
+.mil-animation-1 .mil-h3:nth-child(1) { animation-delay: 0.15s; }
+.mil-animation-1 .mil-h3:nth-child(2) { animation-delay: 0.34s; }
+.mil-animation-1 .mil-h3:nth-child(3) { animation-delay: 0.53s; }
 .mil-animation-1 {
   animation: milGroupOut 0.28s ease forwards;
   animation-delay: 0.98s;
 }
-
 .mil-animation-2 {
   opacity: 0;
   animation: milFadeIn 0.3s ease forwards;
@@ -384,101 +430,33 @@ a {
 
 .mil-reveal-box {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
   margin: 0;
-  background: #ff9800;
+  background: #faebd7;
   animation: milSweep 0.46s cubic-bezier(0.64, 0, 0.2, 1) forwards;
   animation-delay: 1.2s;
 }
 
 @keyframes milTextIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes milFadeIn {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
-
 @keyframes milGroupOut {
-  to {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
+  to { opacity: 0; transform: translateY(-8px); }
 }
-
 @keyframes milSweep {
-  0% {
-    left: -100%;
-  }
-  45% {
-    left: 0%;
-  }
-  100% {
-    left: 100%;
-  }
+  0%   { left: -100%; }
+  45%  { left: 0%; }
+  100% { left: 100%; }
 }
 
-.mil-circle-text {
-  position: relative;
-  width: 156px;
-  height: 156px;
-}
-
-.mil-ct-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.mil-ct-svg text {
-  fill: rgba(255, 255, 255, 0.45);
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.mil-ct-svg circle {
-  stroke: rgba(255, 152, 0, 0.55);
-  stroke-width: 1.2;
-}
-
-.mil-rotate {
-  animation: milRotate 12s linear infinite;
-}
-
-.mil-arrow-down-btn {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 54px;
-  height: 54px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 152, 0, 0.5);
-  color: rgba(255, 255, 255, 0.88);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  transition: all 0.25s ease;
-}
-
-.mil-arrow-down-btn:hover {
-  border-color: rgba(255, 152, 0, 0.7);
-  color: #ff9800;
-}
-
-@keyframes milRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ─── Scroll Line Animation ───────────────────────────── */
+@keyframes scrollLine {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
 }

@@ -139,7 +139,7 @@ export const projects = [
     category: "Brand & Packaging",
     year: "2022",
     description: "Playful yet premium packaging and brand direction for an artisanal chocolate maker launching in 3 new markets.",
-    image: "https://images.unsplash.com/photo-1606312619070-d48b8c7e3be8?w=800&q=75",
+    image: "/img/blog/2.jpg",
     tags: ["Packaging", "Brand", "Print"],
     featured: false,
   },

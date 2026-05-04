@@ -55,23 +55,21 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-black/92 backdrop-blur-md border-b border-white/10"
-            : "bg-transparent"
+          scrolled ? "bg-[#050505]" : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1320px] mx-auto px-4 md:px-7 lg:px-12">
-          <div className="flex items-center justify-between h-[62px] md:h-[74px] lg:h-20">
+        <div className="max-w-300 mx-auto px-4 sm:px-5 md:px-7 lg:px-10">
+          <div className="flex items-center justify-between h-15 md:h-16.5 lg:h-18">
             <Link
               href="/"
-              className="text-white font-semibold text-[1.35rem] tracking-tight hover:text-accent transition-colors"
+              className="text-white font-semibold text-[1.25rem] tracking-tight hover:text-accent transition-colors"
               aria-label={`${personal.name} - Home`}
             >
               {personal.logo}
             </Link>
 
             <nav
-              className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2"
+              className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2"
               aria-label="Main navigation"
             >
               {navLinks.map((link) => {
@@ -93,7 +91,7 @@ export default function Header() {
             </nav>
 
             <button
-              className={`lg:hidden flex flex-col gap-[5px] p-3 -mr-3 text-white transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+              className={`lg:hidden flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.25 -mr-3 text-white transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 menuOpen ? "menu-open" : ""
               }`}
               onClick={handleMenuToggle}
