@@ -40,10 +40,10 @@ export default function HeroSection() {
             className="text-[clamp(2.3rem,12vw,6.8rem)] font-light leading-[1.02] tracking-tight text-white mb-5 md:mb-8"
             style={{ fontFamily: "var(--font-primary)" }}
           >
-            Designing a Better
+            Hi, my names is 
             <br />
             {/* <span className="font-semibold">Digital</span> */}
-            <span className="text-accent">World Today.</span>
+            <span className="text-accent">Sayu Damar Yunan.</span>
           </h1>
 
           <div className="max-w-sm md:max-w-lg mb-9 md:mb-12">
@@ -52,7 +52,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 md:gap-4">
+          {/* <div className="flex flex-wrap items-center gap-3 md:gap-4">
             <Link href="#work" className="btn-primary">
               View my work
               <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
@@ -66,7 +66,7 @@ export default function HeroSection() {
             <Link href="#contact" className="btn-ghost">
               Get in touch
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="mt-14 md:mt-20 pt-7 md:pt-8 border-t border-white/10">
