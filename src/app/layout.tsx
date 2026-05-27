@@ -1,6 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import { Anton, Outfit, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-anton",
+});
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -11,10 +21,10 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ashley",
-    template: "%s | Ashley",
+    default: "Sayu",
+    template: "%s | Sayu",
   },
-  description: "Ashley creative portfolio.",
+  description: "Sayu creative portfolio.",
 };
 
 export const viewport: Viewport = {
@@ -28,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zxx" suppressHydrationWarning>
+    <html lang="zxx" suppressHydrationWarning className={cn("font-sans", geist.variable, anton.variable)}>
       <body className={outfit.variable}>{children}</body>
     </html>
   );

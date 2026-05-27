@@ -4,16 +4,16 @@
 // ============================================================
 
 export const personal = {
-  name: "Ashley",
+  name: "Hi, I'm Sayu",
   logo: "S.",
-  role: "Creative Developer & UI/UX Designer",
-  tagline: "Crafting Digital Experiences That Matter",
+  // role: "Creative Developer & UI/UX Designer",
+  tagline: "Pioneering Creative Excellent",
   bio: "I design and build fast, beautiful digital products that bridge the gap between functionality and aesthetics. With 6+ years of experience, I help brands translate complex ideas into interfaces people actually enjoy using.",
   bioSecondary:
-    "Based in Jakarta, I collaborate with startups and established companies across Southeast Asia and beyond — turning strategy into pixel-perfect, performant products.",
-  location: "Jakarta, Indonesia",
-  email: "hello@ashley.design",
-  phone: "+62 812 3456 7890",
+    "Based in Surabaya, I collaborate with startups and established companies across Southeast Asia and beyond — turning strategy into pixel-perfect, performant products.",
+  location: "Surabaya, Indonesia",
+  email: "its.saiu04@gmail.com",
+  phone: "+62 823 3551 3574",
   availableForWork: true,
 };
 
@@ -34,7 +34,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "6+", label: "Years Experience" },
+  { value: "2+", label: "Years Experience" },
   { value: "48", label: "Projects Shipped" },
   { value: "32", label: "Happy Clients" },
   { value: "12", label: "Design Awards" },

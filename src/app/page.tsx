@@ -14,7 +14,7 @@ import Preloader from "@/components/ui/Preloader";
 
 export const metadata: Metadata = {
   title: "Protofolio - Sayu",
-  description: "Ashley portfolio landing page clone.",
+  description: "Sayu portfolio landing page clone.",
 };
 
 export default function HomePage() {

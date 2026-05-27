@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useScrollReveal } from "@/components/hooks/useScrollReveal";
 import AnimatedOrbs from "@/components/ui/AnimatedOrbs";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { personal } from "@/lib/data";
 
 // Duplicated for seamless marquee loop (first half + second half identical)
@@ -75,22 +76,23 @@ export default function HeroSection() {
         )}
 
         {/* Headline */}
-        <h1
-          className="reveal reveal-delay-1 text-[clamp(2.55rem,14vw,7rem)] font-light leading-none tracking-tight text-white mb-5 md:mb-8"
-          style={{ fontFamily: "var(--font-primary)" }}
-        >
-          {personal.name}
-          <br />
-          <span className="font-semibold text-accent">{personal.role}.</span>
-        </h1>
+        <div className="reveal reveal-delay-1 mb-5 flex w-full flex-col items-center text-center md:mb-8">
+          <h1 className="flex w-full justify-center">
+            <LayoutTextFlip
+              variant="hero"
+              text={personal.name}
+              words={["Damar Yunan"]}
+            />
+          </h1>
+        </div>
 
-        {/* Subtext + CTAs */}
-        <div className="reveal reveal-delay-2 flex flex-col md:flex-row md:items-end gap-5 md:gap-10 mb-8 md:mb-12">
-          <p className="text-white/42 text-sm md:text-[0.95rem] leading-relaxed max-w-sm md:max-w-xs font-light">
-            {personal.bio}
-          </p>
+        {/* CTAs */}
+        <div className="reveal reveal-delay-2 flex justify-center mb-8 md:mb-12">
           <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:flex md:flex-wrap items-center gap-3 shrink-0">
-            <Link href="#work" className="btn-primary justify-center">
+            <Link
+              href="#work"
+              className="btn-primary justify-center !bg-[#ead7bf] !text-white hover:!bg-[#dec7aa]"
+            >
               View my work
               <svg
                 viewBox="0 0 20 20"
@@ -113,14 +115,14 @@ export default function HeroSection() {
 
         {/* Stats row */}
         <div className="reveal reveal-delay-3 pt-6 border-t border-white/7">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-5 md:gap-8">
+          <div className="mx-auto grid w-full max-w-230 grid-cols-2 gap-x-8 gap-y-5 text-center md:grid-cols-4 md:gap-10">
             {[
               { value: "6+", label: "Years Experience" },
               { value: "48", label: "Projects Shipped" },
               { value: "32", label: "Happy Clients" },
               { value: "12", label: "Awards Won" },
             ].map((stat) => (
-              <div key={stat.label} className="flex flex-col gap-1.5">
+              <div key={stat.label} className="flex flex-col items-center gap-1.5">
                 <span className="text-accent text-[1.55rem] md:text-[2.05rem] font-semibold leading-none tabular-nums">
                   {stat.value}
                 </span>

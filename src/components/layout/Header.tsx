@@ -2,45 +2,42 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks, personal } from "@/lib/data";
 import MobileMenu from "./MobileMenu";
 
+function getActiveNavKey(pathname: string) {
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+
+  if (normalizedPath === "/" || normalizedPath === "/home") return "home";
+  if (
+    normalizedPath === "/work" ||
+    normalizedPath === "/projects" ||
+    normalizedPath === "/project" ||
+    normalizedPath.startsWith("/work/") ||
+    normalizedPath.startsWith("/projects/") ||
+    normalizedPath.startsWith("/project/")
+  ) {
+    return "work";
+  }
+  if (normalizedPath === "/blog" || normalizedPath.startsWith("/blog/")) return "blog";
+  if (normalizedPath === "/about" || normalizedPath.startsWith("/about/")) return "about";
+  if (normalizedPath === "/contact" || normalizedPath.startsWith("/contact/")) return "contact";
+  if (normalizedPath === "/skills" || normalizedPath.startsWith("/skills/")) return "skills";
+
+  return "home";
+}
+
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const activeNavKey = getActiveNavKey(pathname);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  useEffect(() => {
-    const ids = navLinks.map((l) => l.href.replace("#", ""));
-
-    const updateActive = () => {
-      const trigger = window.innerHeight * 0.35;
-      let current = ids[0] ?? "home";
-
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        if (el.getBoundingClientRect().top <= trigger) {
-          current = id;
-        }
-      }
-
-      setActiveSection(current);
-    };
-
-    updateActive();
-    window.addEventListener("scroll", updateActive, { passive: true });
-    window.addEventListener("resize", updateActive);
-    return () => {
-      window.removeEventListener("scroll", updateActive);
-      window.removeEventListener("resize", updateActive);
-    };
   }, []);
 
   const handleMenuToggle = useCallback(() => {
@@ -73,7 +70,7 @@ export default function Header() {
               aria-label="Main navigation"
             >
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.replace("#", "");
+                const isActive = activeNavKey === link.href.replace("#", "");
                 return (
                   <Link
                     key={link.href}
