@@ -1,5 +1,5 @@
 // ============================================================
-// Portfolio Data — Ashley
+// Portfolio Data - Ashley
 // Edit this file to update content across the entire site
 // ============================================================
 
@@ -10,7 +10,7 @@ export const personal = {
   tagline: "Pioneering Creative Excellent",
   bio: "I design and build fast, beautiful digital products that bridge the gap between functionality and aesthetics. With 6+ years of experience, I help brands translate complex ideas into interfaces people actually enjoy using.",
   bioSecondary:
-    "Based in Surabaya, I collaborate with startups and established companies across Southeast Asia and beyond — turning strategy into pixel-perfect, performant products.",
+    "Based in Surabaya, I collaborate with startups and established companies across Southeast Asia and beyond - turning strategy into pixel-perfect, performant products.",
   location: "Surabaya, Indonesia",
   email: "its.saiu04@gmail.com",
   phone: "+62 823 3551 3574",
@@ -25,12 +25,10 @@ export const socialLinks = [
 ];
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/", key: "home" },
+  { label: "About Me", href: "/about", key: "about" },
+  { label: "Projects", href: "/projects", key: "project" },
+  { label: "Tech", href: "/tech", key: "tech" },
 ];
 
 export const stats = [
@@ -73,14 +71,14 @@ export const services = [
     number: "02",
     title: "Frontend Development",
     description:
-      "Production-ready interfaces built with modern React, Next.js, and Tailwind CSS — accessible, performant, and maintainable.",
+      "Production-ready interfaces built with modern React, Next.js, and Tailwind CSS - accessible, performant, and maintainable.",
     tools: ["Next.js", "React", "TypeScript"],
   },
   {
     number: "03",
     title: "Brand & Identity",
     description:
-      "Visual identities that carry meaning across every touchpoint — from logomark to full brand guidelines.",
+      "Visual identities that carry meaning across every touchpoint - from logomark to full brand guidelines.",
     tools: ["Illustrator", "Figma", "Framer"],
   },
   {
@@ -92,65 +90,85 @@ export const services = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  ariaLabel?: string;
+  featured?: boolean;
+};
+
+export const projects: Project[] = [
   {
-    id: "p1",
-    title: "Kemia Skincare",
-    category: "Brand Identity & Web",
-    year: "2024",
-    description: "Complete brand identity and e-commerce redesign for an honest skincare brand targeting millennial consumers.",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=75",
-    tags: ["Branding", "E-commerce", "Figma"],
+    id: "sweetiepie-website",
+    title: "SweetiePie",
+    description:
+      "A responsive bakery website designed for browsing cake collections and menu items through a clean, accessible, and user-friendly shopping experience.",
+    image: "/img/blog/SweetiePie.jpg",
+    technologies: ["Web App", "Bakery", "Menu"],
+    liveUrl:
+      "https://sweetbite-workshop-ix2zudq13-sayudamaryunan-gmailcoms-projects.vercel.app/menu",
+    ariaLabel: "View SweetiePie website",
     featured: true,
   },
   {
-    id: "p2",
-    title: "Cascad Dashboard",
-    category: "Product Design",
-    year: "2024",
-    description: "Analytics dashboard for a SaaS platform with 50k+ daily active users. Reduced time-on-task by 34%.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=75",
-    tags: ["SaaS", "Dashboard", "React"],
+    id: "sweetiepie-uiux",
+    title: "SweetiePie",
+    description:
+      "A complete UI/UX design for a modern bakery platform, covering product discovery, menu browsing, ordering flows, and a consistent visual experience.",
+    image: "/img/blog/figma 1.jpg",
+    technologies: ["UI/UX", "Figma", "Prototype"],
+    liveUrl:
+      "https://www.figma.com/design/Wys97YpZIKdqcw9F7JRJ3S/SweetiePie?node-id=0-1&p=f&t=fjem5NwGkHeETgUl-0",
+    ariaLabel: "View SweetiePie UI/UX design",
     featured: true,
   },
   {
-    id: "p3",
-    title: "Interior Studio",
-    category: "Web Design & Dev",
-    year: "2023",
-    description: "Immersive portfolio site for a boutique interior design firm — built with Next.js and GSAP-inspired CSS animations.",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=75",
-    tags: ["Next.js", "Portfolio", "Animation"],
-    featured: false,
+    id: "vokasivote",
+    title: "VokasiVote",
+    description:
+      "A UI/UX design for a digital voting platform created for vocational communities, featuring candidate information, structured voting flows, and clear election result presentation.",
+    image: "/img/blog/figma 2.jpg",
+    technologies: ["UI/UX", "Figma", "Voting Flow"],
+    liveUrl:
+      "https://www.figma.com/design/HzdMReL56pmjCWu6Hwhm37/VokasiVote?node-id=0-1&p=f&t=V2vSUGLU9ozk4gmU-0",
+    ariaLabel: "View VokasiVote design",
+    featured: true,
   },
   {
-    id: "p4",
-    title: "Molekule Air Pro",
-    category: "Mobile App",
-    year: "2023",
-    description: "IoT mobile app connecting users to their air purifier — real-time data, alerts, and scheduling in one clean interface.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=75",
-    tags: ["Mobile", "IoT", "Figma"],
+    id: "kampucuci",
+    title: "KampuCuci",
+    description:
+      "A campus laundry service app with ordering, pickup scheduling, and service tracking flows. Designed in Figma and also built into a functional implementation.",
+    image: "/img/blog/figma 3.jpg",
+    technologies: ["UI/UX", "Figma", "Implementation"],
+    liveUrl:
+      "https://www.figma.com/design/TvmIYJRfunRZecUtx0kRrW/KampuCuci?node-id=0-1&p=f&t=PO7W2FMJLPXTl0nw-0",
+    ariaLabel: "View KampuCuci project",
     featured: false,
   },
   {
     id: "p5",
     title: "Chocolat Brand",
-    category: "Brand & Packaging",
-    year: "2022",
-    description: "Playful yet premium packaging and brand direction for an artisanal chocolate maker launching in 3 new markets.",
+    description:
+      "Playful yet premium packaging and brand direction for an artisanal chocolate maker launching in 3 new markets.",
+    // TODO: Replace with the real Chocolat Brand project screenshot and live URL.
     image: "/img/blog/2.jpg",
-    tags: ["Packaging", "Brand", "Print"],
+    technologies: ["Packaging", "Brand", "Print"],
     featured: false,
   },
   {
     id: "p6",
     title: "SecureHome App",
-    category: "Product Design",
-    year: "2022",
-    description: "Smart home security app with live camera feeds, motion alerts, and household member management.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75",
-    tags: ["Mobile", "Security", "UX Research"],
+    description:
+      "Smart home security app with live camera feeds, motion alerts, and household member management.",
+    // TODO: Replace with the real SecureHome App project screenshot and live URL.
+    image: "/img/blog/1.jpg",
+    technologies: ["Mobile", "Security", "UX Research"],
     featured: false,
   },
 ];
@@ -159,7 +177,7 @@ export const testimonials = [
   {
     name: "Sarah Chen",
     role: "CEO, Kemia Skincare",
-    text: "Ashley completely transformed how our brand communicates. The new identity and website felt instantly ours — and our conversion rate went up 28% in the first quarter post-launch.",
+    text: "Ashley completely transformed how our brand communicates. The new identity and website felt instantly ours - and our conversion rate went up 28% in the first quarter post-launch.",
   },
   {
     name: "Marc Dubois",
@@ -174,7 +192,7 @@ export const testimonials = [
   {
     name: "Tom Eriksen",
     role: "CTO, Molekule APAC",
-    text: "The mobile app Ashley designed scored a 4.8 in user satisfaction testing — the highest we've ever recorded. The attention to interaction detail was extraordinary.",
+    text: "The mobile app Ashley designed scored a 4.8 in user satisfaction testing - the highest we've ever recorded. The attention to interaction detail was extraordinary.",
   },
 ];
 
@@ -183,7 +201,7 @@ export const blogPosts = [
     id: "b1",
     category: "Design",
     date: "March 12, 2025",
-    title: "Why Most SaaS Dashboards Fail on Mobile — and How to Fix It",
+    title: "Why Most SaaS Dashboards Fail on Mobile - and How to Fix It",
     excerpt:
       "70% of enterprise users check their dashboards on mobile at least once a day. Yet most are built desktop-first, then squeezed down. Here's a better approach.",
     readTime: "6 min",
@@ -195,7 +213,7 @@ export const blogPosts = [
     date: "January 28, 2025",
     title: "Building a Design System with Tailwind CSS and TypeScript in 2025",
     excerpt:
-      "A practical guide to token-based design systems that scale — without the overhead of a dedicated toolchain or six-figure design platform.",
+      "A practical guide to token-based design systems that scale - without the overhead of a dedicated toolchain or six-figure design platform.",
     readTime: "9 min",
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&q=70",
   },

@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Hi, I'm Sayu - Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - text: S.
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "About Me" [ref=e9] [cursor=pointer]:
+          - /url: /about
+        - link "Project" [ref=e10] [cursor=pointer]:
+          - /url: /projects
+        - link "Tech" [ref=e11] [cursor=pointer]:
+          - /url: /tech
+  - main [ref=e12]:
+    - region "About me" [ref=e13]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e19]:
+            - img "Sayu" [ref=e20]
+            - generic [ref=e22]:
+              - paragraph [ref=e23]: Sayu
+              - paragraph [ref=e24]: Full Stack Developer
+              - generic [ref=e27]: Available
+          - link "Download CV" [ref=e28] [cursor=pointer]:
+            - /url: /file/CV.pdf
+            - img [ref=e29]
+            - text: Download CV
+        - generic [ref=e32]:
+          - heading "Full Stack Developer & UI/UX Designer" [level=2] [ref=e33]:
+            - generic [ref=e34]: Full Stack Developer
+            - generic [ref=e35]: "& UI/UX Designer"
+          - paragraph [ref=e36]: Web, Mobile & Digital Product Development
+          - paragraph [ref=e37]: I design and develop user-friendly digital products by combining responsive front-end interfaces, reliable back-end systems, and intuitive UI/UX design, with a strong focus on performance and functionality.
+  - contentinfo "Site footer" [ref=e42]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: S.
+          - paragraph [ref=e48]: Designing and building digital products that bridge aesthetics and functionality.
+          - generic [ref=e49]:
+            - textbox "Email for newsletter" [ref=e50]:
+              - /placeholder: Your email address
+            - button "Subscribe to newsletter" [ref=e51]: →
+        - generic [ref=e52]:
+          - heading "Navigate" [level=3] [ref=e53]
+          - navigation "Footer navigation" [ref=e54]:
+            - list [ref=e55]:
+              - listitem [ref=e56]:
+                - link "Home" [ref=e57] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e58]:
+                - link "About Me" [ref=e59] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e60]:
+                - link "Project" [ref=e61] [cursor=pointer]:
+                  - /url: /projects
+              - listitem [ref=e62]:
+                - link "Tech" [ref=e63] [cursor=pointer]:
+                  - /url: /tech
+        - generic [ref=e64]:
+          - heading "Contact" [level=3] [ref=e65]
+          - generic [ref=e66]:
+            - paragraph [ref=e67]: Surabaya, Indonesia
+            - link "its.saiu04@gmail.com" [ref=e68] [cursor=pointer]:
+              - /url: mailto:its.saiu04@gmail.com
+            - link "+62 823 3551 3574" [ref=e69] [cursor=pointer]:
+              - /url: tel:+6282335513574
+          - generic [ref=e70]:
+            - link "Dribbble" [ref=e71] [cursor=pointer]:
+              - /url: https://dribbble.com
+              - img [ref=e72]
+            - link "GitHub" [ref=e74] [cursor=pointer]:
+              - /url: https://github.com/sayu0044
+              - img [ref=e75]
+            - link "LinkedIn" [ref=e77] [cursor=pointer]:
+              - /url: https://linkedin.com
+              - img [ref=e78]
+            - link "Twitter" [ref=e80] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e81]
+      - generic [ref=e83]:
+        - paragraph [ref=e84]: © 2026 Hi, I'm Sayu. All rights reserved.
+        - generic [ref=e85]:
+          - link "Privacy Policy" [ref=e86] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=e87] [cursor=pointer]:
+            - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e93] [cursor=pointer]:
+    - img [ref=e94]
+  - alert [ref=e97]

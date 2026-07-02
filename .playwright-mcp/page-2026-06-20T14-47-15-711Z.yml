@@ -1,0 +1,197 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Hi, I'm Sayu - Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - text: S.
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "About Me" [ref=e9] [cursor=pointer]:
+          - /url: /about
+        - link "Project" [ref=e10] [cursor=pointer]:
+          - /url: /projects
+        - link "Tech" [ref=e11] [cursor=pointer]:
+          - /url: /tech
+  - main [ref=e12]:
+    - region "About me" [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e19]:
+              - img "Sayu" [ref=e20]
+              - generic [ref=e22]:
+                - paragraph [ref=e23]: Sayu
+                - paragraph [ref=e24]: Full Stack Developer
+                - generic [ref=e27]: Available
+            - link "Download CV" [ref=e28] [cursor=pointer]:
+              - /url: /file/CV.pdf
+              - img [ref=e29]
+              - text: Download CV
+          - generic [ref=e32]:
+            - heading "Full Stack Developer & UI/UX Designer" [level=2] [ref=e33]:
+              - generic [ref=e34]: Full Stack Developer
+              - generic [ref=e35]: "& UI/UX Designer"
+            - paragraph [ref=e36]: Web, Mobile & Digital Product Development
+            - paragraph [ref=e37]: I design and build modern digital products, from responsive front-end interfaces and intuitive UI/UX designs to reliable backend systems, API services, databases, and cross-platform applications, with a focus on performance, functionality, and excellent user experience.
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "My Journey" [level=2] [ref=e41]
+            - paragraph [ref=e42]: A timeline of my professional experience, projects, and growth as a developer.
+          - generic [ref=e43]:
+            - article [ref=e45]:
+              - paragraph [ref=e47]:
+                - generic [ref=e48]: "2023"
+                - generic [ref=e49]: August -
+                - generic [ref=e50]: Present
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - generic [ref=e57]:
+                    - generic [ref=e58]: UA
+                    - generic [ref=e59]:
+                      - heading "D4 Teknik Informatika Student" [level=3] [ref=e60]
+                      - paragraph [ref=e61]: Universitas Airlangga
+                  - generic [ref=e62]:
+                    - generic [ref=e63]:
+                      - img [ref=e64]
+                      - text: 2023 August - Present
+                    - generic [ref=e66]: Current
+                    - generic [ref=e67]:
+                      - img [ref=e68]
+                      - text: Surabaya, Indonesia
+                - paragraph [ref=e71]: Currently pursuing D4 (Diploma 4) degree in Computer Engineering at Universitas Airlangga, focusing on software development, system analysis, and modern programming technologies.
+                - generic [ref=e72]:
+                  - heading "Key Achievements" [level=4] [ref=e73]:
+                    - generic [ref=e74]: "*"
+                    - text: Key Achievements
+                  - list [ref=e75]:
+                    - listitem [ref=e76]: Studying comprehensive computer science curriculum
+                    - listitem [ref=e77]: Learning modern software development practices
+                    - listitem [ref=e78]: Developing projects using various technologies
+                - generic [ref=e79]:
+                  - generic [ref=e80]: Software Development
+                  - generic [ref=e81]: System Analysis
+                  - generic [ref=e82]: Web Development
+                  - generic [ref=e83]: Database
+            - article [ref=e84]:
+              - paragraph [ref=e86]:
+                - generic [ref=e87]: 2024 -
+                - generic [ref=e88]: "2025"
+              - generic [ref=e93]:
+                - generic [ref=e94]:
+                  - generic [ref=e95]:
+                    - generic [ref=e96]: HM
+                    - generic [ref=e97]:
+                      - heading "Staff Ahli Departemen Pendidikan" [level=3] [ref=e98]
+                      - paragraph [ref=e99]: Himpunan Mahasiswa
+                  - generic [ref=e100]:
+                    - generic [ref=e101]:
+                      - img [ref=e102]
+                      - text: 2024 - 2025
+                    - generic [ref=e104]:
+                      - img [ref=e105]
+                      - text: Surabaya, Indonesia
+                - paragraph [ref=e108]: Served as expert staff in the Education Department, specifically in the Interest and Talent division (Minat dan Bakat), focusing on non-academic student development activities.
+                - generic [ref=e109]:
+                  - heading "Key Achievements" [level=4] [ref=e110]:
+                    - generic [ref=e111]: "*"
+                    - text: Key Achievements
+                  - list [ref=e112]:
+                    - listitem [ref=e113]: Contributed to non-academic student development programs
+                    - listitem [ref=e114]: Helped handle interest and talent activities
+                    - listitem [ref=e115]: Supported sports-related activities such as basketball, badminton, and futsal
+                    - listitem [ref=e116]: Collaborated with other members to manage department programs
+                - generic [ref=e117]:
+                  - generic [ref=e118]: Organization
+                  - generic [ref=e119]: Leadership
+                  - generic [ref=e120]: Education Department
+                  - generic [ref=e121]: Interest and Talent
+                  - generic [ref=e122]: Sports
+            - article [ref=e123]:
+              - paragraph [ref=e125]:
+                - generic [ref=e126]: 2021 -
+                - generic [ref=e127]: "2023"
+              - generic [ref=e132]:
+                - generic [ref=e133]:
+                  - generic [ref=e134]:
+                    - generic [ref=e135]: "20"
+                    - generic [ref=e136]:
+                      - heading "Science Student" [level=3] [ref=e137]
+                      - paragraph [ref=e138]: SMA Negeri 20 Surabaya
+                  - generic [ref=e139]:
+                    - generic [ref=e140]:
+                      - img [ref=e141]
+                      - text: 2021 - 2023
+                    - generic [ref=e143]:
+                      - img [ref=e144]
+                      - text: Surabaya, Indonesia
+                - paragraph [ref=e147]: Graduated from SMA Negeri 20 Surabaya with a focus on the Science major, building a strong academic foundation before continuing into informatics and software development.
+                - generic [ref=e148]:
+                  - heading "Key Achievements" [level=4] [ref=e149]:
+                    - generic [ref=e150]: "*"
+                    - text: Key Achievements
+                  - list [ref=e151]:
+                    - listitem [ref=e152]: Completed senior high school education in the Science major
+                    - listitem [ref=e153]: Built foundational knowledge in mathematics and science
+                    - listitem [ref=e154]: Prepared academic foundation for further study in informatics
+                - generic [ref=e155]:
+                  - generic [ref=e156]: High School
+                  - generic [ref=e157]: Science Major
+                  - generic [ref=e158]: Mathematics
+                  - generic [ref=e159]: Science
+  - contentinfo "Site footer" [ref=e160]:
+    - generic [ref=e162]:
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]: S.
+          - paragraph [ref=e166]: Designing and building digital products that bridge aesthetics and functionality.
+          - generic [ref=e167]:
+            - textbox "Email for newsletter" [ref=e168]:
+              - /placeholder: Your email address
+            - button "Subscribe to newsletter" [ref=e169]: →
+        - generic [ref=e170]:
+          - heading "Navigate" [level=3] [ref=e171]
+          - navigation "Footer navigation" [ref=e172]:
+            - list [ref=e173]:
+              - listitem [ref=e174]:
+                - link "Home" [ref=e175] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e176]:
+                - link "About Me" [ref=e177] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e178]:
+                - link "Project" [ref=e179] [cursor=pointer]:
+                  - /url: /projects
+              - listitem [ref=e180]:
+                - link "Tech" [ref=e181] [cursor=pointer]:
+                  - /url: /tech
+        - generic [ref=e182]:
+          - heading "Contact" [level=3] [ref=e183]
+          - generic [ref=e184]:
+            - paragraph [ref=e185]: Surabaya, Indonesia
+            - link "its.saiu04@gmail.com" [ref=e186] [cursor=pointer]:
+              - /url: mailto:its.saiu04@gmail.com
+            - link "+62 823 3551 3574" [ref=e187] [cursor=pointer]:
+              - /url: tel:+6282335513574
+          - generic [ref=e188]:
+            - link "Dribbble" [ref=e189] [cursor=pointer]:
+              - /url: https://dribbble.com
+              - img [ref=e190]
+            - link "GitHub" [ref=e192] [cursor=pointer]:
+              - /url: https://github.com/sayu0044
+              - img [ref=e193]
+            - link "LinkedIn" [ref=e195] [cursor=pointer]:
+              - /url: https://linkedin.com
+              - img [ref=e196]
+            - link "Twitter" [ref=e198] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e199]
+      - generic [ref=e201]:
+        - paragraph [ref=e202]: © 2026 Hi, I'm Sayu. All rights reserved.
+        - generic [ref=e203]:
+          - link "Privacy Policy" [ref=e204] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=e205] [cursor=pointer]:
+            - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e211] [cursor=pointer]:
+    - img [ref=e212]

@@ -2,43 +2,62 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { navLinks, personal } from "@/lib/data";
 import MobileMenu from "./MobileMenu";
+
+const SKIP_HOME_PRELOADER_KEY = "skip-home-preloader";
 
 function getActiveNavKey(pathname: string) {
   const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 
   if (normalizedPath === "/" || normalizedPath === "/home") return "home";
+  if (normalizedPath === "/about" || normalizedPath.startsWith("/about/")) return "about";
   if (
-    normalizedPath === "/work" ||
     normalizedPath === "/projects" ||
     normalizedPath === "/project" ||
-    normalizedPath.startsWith("/work/") ||
     normalizedPath.startsWith("/projects/") ||
     normalizedPath.startsWith("/project/")
   ) {
-    return "work";
+    return "project";
   }
-  if (normalizedPath === "/blog" || normalizedPath.startsWith("/blog/")) return "blog";
-  if (normalizedPath === "/about" || normalizedPath.startsWith("/about/")) return "about";
-  if (normalizedPath === "/contact" || normalizedPath.startsWith("/contact/")) return "contact";
-  if (normalizedPath === "/skills" || normalizedPath.startsWith("/skills/")) return "skills";
+  if (
+    normalizedPath === "/tech" ||
+    normalizedPath === "/tech-certs" ||
+    normalizedPath.startsWith("/tech/") ||
+    normalizedPath.startsWith("/tech-certs/")
+  ) {
+    return "tech";
+  }
 
   return "home";
 }
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const activeNavKey = getActiveNavKey(pathname);
+  const isHomeRoute = activeNavKey === "home";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  useEffect(() => {
+    if (!isHomeRoute) {
+      router.prefetch("/");
+    }
+  }, [isHomeRoute, router]);
+
+  const handleHomeNavigation = useCallback(() => {
+    if (!isHomeRoute) {
+      window.sessionStorage.setItem(SKIP_HOME_PRELOADER_KEY, "true");
+    }
+  }, [isHomeRoute]);
 
   const handleMenuToggle = useCallback(() => {
     setMenuOpen((prev) => !prev);
@@ -59,6 +78,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-15 md:h-16.5 lg:h-18">
             <Link
               href="/"
+              onClick={handleHomeNavigation}
               className="text-white font-semibold text-[1.25rem] tracking-tight hover:text-accent transition-colors"
               aria-label={`${personal.name} - Home`}
             >
@@ -70,11 +90,14 @@ export default function Header() {
               aria-label="Main navigation"
             >
               {navLinks.map((link) => {
-                const isActive = activeNavKey === link.href.replace("#", "");
+                const isActive = activeNavKey === link.key;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={
+                      link.key === "home" ? handleHomeNavigation : undefined
+                    }
                     className={`text-sm tracking-[0.08em] uppercase transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-accent after:transition-all after:duration-300 ${
                       isActive
                         ? "text-white after:w-full"

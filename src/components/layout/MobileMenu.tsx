@@ -4,6 +4,8 @@ import { useEffect, useCallback, type ReactNode } from "react";
 import Link from "next/link";
 import { navLinks, socialLinks, personal } from "@/lib/data";
 
+const SKIP_HOME_PRELOADER_KEY = "skip-home-preloader";
+
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -61,6 +63,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     return () => document.removeEventListener("keydown", handleKey);
   }, [handleKey]);
 
+  const handleNavClick = useCallback(
+    (key: string) => {
+      if (key === "home") {
+        window.sessionStorage.setItem(SKIP_HOME_PRELOADER_KEY, "true");
+      }
+
+      onClose();
+    },
+    [onClose]
+  );
+
   return (
     <>
       {/* Overlay */}
@@ -107,7 +120,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 <Link
                   href={link.href}
-                  onClick={onClose}
+                  onClick={() => handleNavClick(link.key)}
                   className="block py-3.5 text-[2.35rem] md:text-5xl font-light text-white/80 hover:text-accent transition-colors tracking-tight leading-none"
                   style={{ fontFamily: "var(--font-primary)" }}
                 >

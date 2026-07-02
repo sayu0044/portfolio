@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useScrollReveal } from "@/components/hooks/useScrollReveal";
 import AnimatedOrbs from "@/components/ui/AnimatedOrbs";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
@@ -86,35 +85,8 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* CTAs */}
-        <div className="reveal reveal-delay-2 flex justify-center mb-8 md:mb-12">
-          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:flex md:flex-wrap items-center gap-3 shrink-0">
-            <Link
-              href="#work"
-              className="btn-primary justify-center !bg-[#ead7bf] !text-white hover:!bg-[#dec7aa]"
-            >
-              View my work
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-4 h-4 shrink-0"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Link>
-            <Link href="#contact" className="btn-ghost justify-center">
-              Get in touch
-            </Link>
-          </div>
-        </div>
-
         {/* Stats row */}
-        <div className="reveal reveal-delay-3 pt-6 border-t border-white/7">
+        <div className="reveal reveal-delay-2 mt-8 md:mt-12 pt-6 border-t border-white/7">
           <div className="mx-auto grid w-full max-w-230 grid-cols-2 gap-x-8 gap-y-5 text-center md:grid-cols-4 md:gap-10">
             {[
               { value: "6+", label: "Years Experience" },

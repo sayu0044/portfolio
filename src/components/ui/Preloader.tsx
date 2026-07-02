@@ -3,16 +3,42 @@
 import { useEffect, useState } from "react";
 import { personal } from "@/lib/data";
 
+const SKIP_PRELOADER_KEY = "skip-home-preloader";
+
+function shouldSkipPreloader() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const shouldSkip = window.sessionStorage.getItem(SKIP_PRELOADER_KEY) === "true";
+
+  if (shouldSkip) {
+    window.sessionStorage.removeItem(SKIP_PRELOADER_KEY);
+  }
+
+  return shouldSkip;
+}
+
 export default function Preloader() {
-  const [hidden, setHidden] = useState(false);
+  const skipPreloader = shouldSkipPreloader();
+  const [shouldRender] = useState(!skipPreloader);
+  const [hidden, setHidden] = useState(skipPreloader);
 
   useEffect(() => {
+    if (!shouldRender) {
+      return;
+    }
+
     const timer = window.setTimeout(() => {
       setHidden(true);
     }, 1500);
 
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [shouldRender]);
+
+  if (!shouldRender) {
+    return null;
+  }
 
   return (
     <div

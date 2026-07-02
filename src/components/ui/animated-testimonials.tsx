@@ -44,7 +44,7 @@ export function AnimatedTestimonials({
 
   return (
     <div className={cn("relative w-full", className)}>
-      <div className="relative mx-auto w-full max-w-80">
+      <div className="relative mx-auto w-full max-w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${current.name}-${active}`}
@@ -52,14 +52,14 @@ export function AnimatedTestimonials({
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             exit={{ opacity: 0, y: -18, rotate: 2 }}
             transition={{ duration: 0.42, ease: "easeOut" }}
-            className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/4 shadow-2xl shadow-black/30"
+            className="relative aspect-[1.12/1] overflow-hidden rounded-[2rem] bg-white/4 shadow-2xl shadow-black/30"
           >
             <Image
               src={current.src}
               alt={current.name}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 80vw, 320px"
+              sizes="(max-width: 1024px) 90vw, 448px"
             />
 
             <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
