@@ -20,12 +20,12 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-cream/8 bg-ink/80 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6 md:px-10">
-        <Link
-          href="/"
-          className="font-display text-lg font-semibold text-cream md:text-[21px]"
-        >
-          {site.name}
-          <span className="text-accent">.</span>
+        <Link href="/" className="flex items-center">
+          <img
+            src="/images/logo.png"
+            alt={site.name}
+            className="h-8 w-auto object-contain md:h-9"
+          />
         </Link>
         <div className="flex items-center gap-5 text-[13.5px] sm:gap-8 sm:text-[14.5px]">
           {links.map(({ href, label }) => (

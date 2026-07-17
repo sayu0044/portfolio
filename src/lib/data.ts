@@ -6,7 +6,7 @@ export const site = {
   name: "Sayu Damar Yunan",
   // Placeholder mark shown by the loader and page transition.
   // Replace this file with the real logo when it exists.
-  logo: "/images/logo.svg",
+  logo: "/images/faces/logo.svg",
   cv: "/file/CV.pdf",
   role: "Full-Stack Web Developer",
   email: "its.saiu04@gmail.com",
@@ -17,7 +17,7 @@ export const site = {
 };
 
 export const heroPhoto = {
-  src: "/images/portrait.jpg",
+  src: "/images/faces/me1.JPG",
   alt: "Portrait of Sayu Damar Yunan",
 };
 
@@ -30,22 +30,22 @@ export type JourneyStep = {
 
 export const journey: JourneyStep[] = [
   {
-    meta: "SELF-TAUGHT / FOUNDATIONS",
-    sub: "PHP / MYSQL / 2024",
-    title: "Where it began",
-    body: "Learned PHP, MySQL and the fundamentals of the web by building small CRUD apps and breaking them until they made sense.",
+    meta: "SMA NEGERI 20 SURABAYA / High School",
+    sub: "SCIENCES / 2020 - 2023",
+    title: "Academic",
+    body: "Studied Natural Science (IPA) with a focus on mathematics, biology, chemistry, and physics. Completed general secondary education while developing analytical thinking, problem-solving, and scientific reasoning skills. Completed the Natural Science (IPA) curriculum, Developed analytical and critical thinking skills, Gained a strong foundation in Biology, Chemistry, Physics, and Mathematics, Applied scientific methods through laboratory experiments and research activities",
   },
   {
-    meta: "CAMPUS / FREELANCE",
-    sub: "WEB DEVELOPER / 2024 TO 2025",
-    title: "First real users",
-    body: "Built Laravel applications for campus organizations and local businesses, taking each one from requirements to deployment.",
+    meta: "CAMPUS / UNIVERSITY",
+    sub: "COMPUTER SCIENCE  / 2023 - PRESENT",
+    title: "Academic / college",
+    body: "Currently pursuing an Applied Bachelor's degree in Informatics Engineering at Universitas Airlangga, with a focus on software development, system analysis, and modern programming technologies. Learning modern software development practices, Developing projects using various technologies, Gaining practical programming and problem-solving experience",
   },
   {
-    meta: "JUNIOR DEVELOPER",
-    sub: "CURRENT ROLE / 2025 TO NOW",
-    title: "Shipping in a team",
-    body: "Working on production features end to end: migrations, APIs and interfaces, with code review and version control as daily practice.",
+    meta: "CAMPUS / UNIVERSITY / STUDENT ASSOCIATION",
+    sub: "SPECIALIST ADVISOR FOR TALENTS / 2024 - 2025",
+    title: "Non-Acadeic / Organization",
+    body: "Supported the development of student talents by mentoring members, coordinating talent development programs, and organizing activities that encouraged leadership, creativity, and collaboration within the student association. Mentored and guided students in developing their skills and potential, Coordinated talent development programs and organizational activities, Collaborated with committees to plan and execute student events, Fostered leadership, teamwork, and professional growth among members",
   },
 ];
 
@@ -61,22 +61,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "inventaris",
-    name: "Inventaris",
-    meta: "2025 / SOLO BUILD / INVENTORY",
+    slug: "Desain Website",
+    name: "Desain Website",
+    meta: "2026 / SOLO BUILD / UI/UX DESIGN",
     short:
       "Warehouse inventory system with stock tracking, low-stock alerts and role-based access.",
     long: "A warehouse inventory system for a local distributor. Tracks stock movement in and out, raises low-stock alerts, and separates what admins, staff and viewers can do with role-based access. Built on Laravel with a Tailwind interface.",
-    tech: ["Laravel", "MySQL", "Tailwind CSS"],
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript strict"],
     image: {
-      src: "/images/inventaris.jpg",
-      alt: "Inventaris dashboard screenshot placeholder",
+      src: "/images/projects/design website - fe.png",
+      alt: "Desain Website screenshot placeholder",
     },
   },
   {
-    slug: "jadwalku",
-    name: "JadwalKu",
-    meta: "2025 / SOLO BUILD / SCHEDULING",
+    slug: "Prototype mobile design",
+    name: "Prototype mobile design",
+    meta: "2024 - 2025 / SOLO BUILD / mobile app design",
     short:
       "Class scheduling app that resolves room and lecturer conflicts automatically.",
     long: "A class scheduling app for a campus organization. Detects room and lecturer conflicts automatically, suggests open slots, and publishes a shareable weekly timetable. Livewire keeps the schedule grid reactive without a separate frontend.",

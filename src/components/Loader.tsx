@@ -162,8 +162,7 @@ export default function Loader() {
         <div>
           <div className="overflow-hidden pb-1">
             <span className="loader-word block font-display text-[clamp(26px,4.4vw,46px)] font-medium text-cream">
-              {site.name}
-              <span className="text-accent">.</span>
+              PORTFOLIO
             </span>
           </div>
           <div className="loader-rule mt-4 h-px origin-left bg-accent/50" />
