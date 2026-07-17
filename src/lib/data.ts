@@ -1,220 +1,158 @@
-// ============================================================
-// Portfolio Data - Ashley
-// Edit this file to update content across the entire site
-// ============================================================
+// Single source of truth for site content.
+// The images in /public/images are placeholders; overwrite them with the
+// real portrait and project screenshots (same filenames) when ready.
 
-export const personal = {
-  name: "Hi, I'm Sayu",
-  logo: "S.",
-  // role: "Creative Developer & UI/UX Designer",
-  tagline: "Pioneering Creative Excellent",
-  bio: "I design and build fast, beautiful digital products that bridge the gap between functionality and aesthetics. With 6+ years of experience, I help brands translate complex ideas into interfaces people actually enjoy using.",
-  bioSecondary:
-    "Based in Surabaya, I collaborate with startups and established companies across Southeast Asia and beyond - turning strategy into pixel-perfect, performant products.",
-  location: "Surabaya, Indonesia",
+export const site = {
+  name: "Sayu Damar Yunan",
+  // Placeholder mark shown by the loader and page transition.
+  // Replace this file with the real logo when it exists.
+  logo: "/images/logo.svg",
+  cv: "/file/CV.pdf",
+  role: "Full-Stack Web Developer",
   email: "its.saiu04@gmail.com",
-  phone: "+62 823 3551 3574",
-  availableForWork: true,
+  github: "https://github.com/sayu0044/",
+  githubLabel: "github.com/sayu0044",
+  tagline:
+    "Building clean, reliable web applications with Laravel, PHP and JavaScript, from database schema to interface.",
 };
 
-export const socialLinks = [
-  { label: "Dribbble", href: "https://dribbble.com", icon: "dribbble" },
-  { label: "GitHub", href: "https://github.com/sayu0044", icon: "github" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "Twitter", href: "https://twitter.com", icon: "twitter" },
-];
+export const heroPhoto = {
+  src: "/images/portrait.jpg",
+  alt: "Portrait of Sayu Damar Yunan",
+};
 
-export const navLinks = [
-  { label: "Home", href: "/", key: "home" },
-  { label: "About Me", href: "/about", key: "about" },
-  { label: "Projects", href: "/projects", key: "project" },
-  { label: "Tech", href: "/tech", key: "tech" },
-];
+export type JourneyStep = {
+  meta: string;
+  sub: string;
+  title: string;
+  body: string;
+};
 
-export const stats = [
-  { value: "2+", label: "Years Experience" },
-  { value: "48", label: "Projects Shipped" },
-  { value: "32", label: "Happy Clients" },
-  { value: "12", label: "Design Awards" },
-];
-
-export const skills = [
+export const journey: JourneyStep[] = [
   {
-    category: "Design",
-    items: [
-      { name: "UI/UX Design", level: 95 },
-      { name: "Brand Identity", level: 85 },
-      { name: "Motion & Interaction", level: 80 },
-      { name: "Design Systems", level: 90 },
-    ],
+    meta: "SELF-TAUGHT / FOUNDATIONS",
+    sub: "PHP / MYSQL / 2024",
+    title: "Where it began",
+    body: "Learned PHP, MySQL and the fundamentals of the web by building small CRUD apps and breaking them until they made sense.",
   },
   {
-    category: "Development",
-    items: [
-      { name: "React / Next.js", level: 92 },
-      { name: "TypeScript", level: 85 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Node.js", level: 72 },
-    ],
-  },
-];
-
-export const services = [
-  {
-    number: "01",
-    title: "Product Design",
-    description:
-      "End-to-end product design from research and wireframes to high-fidelity prototypes that developers can build directly from.",
-    tools: ["Figma", "FigJam", "Protopie"],
+    meta: "CAMPUS / FREELANCE",
+    sub: "WEB DEVELOPER / 2024 TO 2025",
+    title: "First real users",
+    body: "Built Laravel applications for campus organizations and local businesses, taking each one from requirements to deployment.",
   },
   {
-    number: "02",
-    title: "Frontend Development",
-    description:
-      "Production-ready interfaces built with modern React, Next.js, and Tailwind CSS - accessible, performant, and maintainable.",
-    tools: ["Next.js", "React", "TypeScript"],
-  },
-  {
-    number: "03",
-    title: "Brand & Identity",
-    description:
-      "Visual identities that carry meaning across every touchpoint - from logomark to full brand guidelines.",
-    tools: ["Illustrator", "Figma", "Framer"],
-  },
-  {
-    number: "04",
-    title: "Design Systems",
-    description:
-      "Scalable component libraries and token-based design systems that keep teams consistent as they grow.",
-    tools: ["Storybook", "Figma Tokens", "Radix UI"],
+    meta: "JUNIOR DEVELOPER",
+    sub: "CURRENT ROLE / 2025 TO NOW",
+    title: "Shipping in a team",
+    body: "Working on production features end to end: migrations, APIs and interfaces, with code review and version control as daily practice.",
   },
 ];
 
 export type Project = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  ariaLabel?: string;
-  featured?: boolean;
+  slug: string;
+  name: string;
+  meta: string;
+  short: string;
+  long: string;
+  tech: string[];
+  image: { src: string; alt: string };
 };
 
 export const projects: Project[] = [
   {
-    id: "sweetiepie-website",
-    title: "SweetiePie",
-    description:
-      "A responsive bakery website designed for browsing cake collections and menu items through a clean, accessible, and user-friendly shopping experience.",
-    image: "/img/blog/SweetiePie.jpg",
-    technologies: ["Web App", "Bakery", "Menu"],
-    liveUrl:
-      "https://sweetbite-workshop-ix2zudq13-sayudamaryunan-gmailcoms-projects.vercel.app/menu",
-    ariaLabel: "View SweetiePie website",
-    featured: true,
+    slug: "inventaris",
+    name: "Inventaris",
+    meta: "2025 / SOLO BUILD / INVENTORY",
+    short:
+      "Warehouse inventory system with stock tracking, low-stock alerts and role-based access.",
+    long: "A warehouse inventory system for a local distributor. Tracks stock movement in and out, raises low-stock alerts, and separates what admins, staff and viewers can do with role-based access. Built on Laravel with a Tailwind interface.",
+    tech: ["Laravel", "MySQL", "Tailwind CSS"],
+    image: {
+      src: "/images/inventaris.jpg",
+      alt: "Inventaris dashboard screenshot placeholder",
+    },
   },
   {
-    id: "sweetiepie-uiux",
-    title: "SweetiePie",
-    description:
-      "A complete UI/UX design for a modern bakery platform, covering product discovery, menu browsing, ordering flows, and a consistent visual experience.",
-    image: "/img/blog/figma 1.jpg",
-    technologies: ["UI/UX", "Figma", "Prototype"],
-    liveUrl:
-      "https://www.figma.com/design/Wys97YpZIKdqcw9F7JRJ3S/SweetiePie?node-id=0-1&p=f&t=fjem5NwGkHeETgUl-0",
-    ariaLabel: "View SweetiePie UI/UX design",
-    featured: true,
+    slug: "jadwalku",
+    name: "JadwalKu",
+    meta: "2025 / SOLO BUILD / SCHEDULING",
+    short:
+      "Class scheduling app that resolves room and lecturer conflicts automatically.",
+    long: "A class scheduling app for a campus organization. Detects room and lecturer conflicts automatically, suggests open slots, and publishes a shareable weekly timetable. Livewire keeps the schedule grid reactive without a separate frontend.",
+    tech: ["Laravel", "Livewire", "MySQL"],
+    image: {
+      src: "/images/jadwalku.jpg",
+      alt: "JadwalKu schedule screenshot placeholder",
+    },
   },
   {
-    id: "vokasivote",
-    title: "VokasiVote",
-    description:
-      "A UI/UX design for a digital voting platform created for vocational communities, featuring candidate information, structured voting flows, and clear election result presentation.",
-    image: "/img/blog/figma 2.jpg",
-    technologies: ["UI/UX", "Figma", "Voting Flow"],
-    liveUrl:
-      "https://www.figma.com/design/HzdMReL56pmjCWu6Hwhm37/VokasiVote?node-id=0-1&p=f&t=V2vSUGLU9ozk4gmU-0",
-    ariaLabel: "View VokasiVote design",
-    featured: true,
-  },
-  {
-    id: "kampucuci",
-    title: "KampuCuci",
-    description:
-      "A campus laundry service app with ordering, pickup scheduling, and service tracking flows. Designed in Figma and also built into a functional implementation.",
-    image: "/img/blog/figma 3.jpg",
-    technologies: ["UI/UX", "Figma", "Implementation"],
-    liveUrl:
-      "https://www.figma.com/design/TvmIYJRfunRZecUtx0kRrW/KampuCuci?node-id=0-1&p=f&t=PO7W2FMJLPXTl0nw-0",
-    ariaLabel: "View KampuCuci project",
-    featured: false,
-  },
-  {
-    id: "p5",
-    title: "Chocolat Brand",
-    description:
-      "Playful yet premium packaging and brand direction for an artisanal chocolate maker launching in 3 new markets.",
-    // TODO: Replace with the real Chocolat Brand project screenshot and live URL.
-    image: "/img/blog/2.jpg",
-    technologies: ["Packaging", "Brand", "Print"],
-    featured: false,
-  },
-  {
-    id: "p6",
-    title: "SecureHome App",
-    description:
-      "Smart home security app with live camera feeds, motion alerts, and household member management.",
-    // TODO: Replace with the real SecureHome App project screenshot and live URL.
-    image: "/img/blog/1.jpg",
-    technologies: ["Mobile", "Security", "UX Research"],
-    featured: false,
+    slug: "tokokita",
+    name: "TokoKita",
+    meta: "2024 / SOLO BUILD / E-COMMERCE",
+    short:
+      "E-commerce storefront with cart, checkout and a lightweight admin dashboard.",
+    long: "An e-commerce storefront with product catalog, cart, checkout and a lightweight admin dashboard for orders and stock. My first full project in plain PHP and JavaScript, later refactored with what Laravel taught me.",
+    tech: ["PHP", "JavaScript", "MySQL"],
+    image: {
+      src: "/images/tokokita.jpg",
+      alt: "TokoKita storefront screenshot placeholder",
+    },
   },
 ];
 
-export const testimonials = [
-  {
-    name: "Sarah Chen",
-    role: "CEO, Kemia Skincare",
-    text: "Ashley completely transformed how our brand communicates. The new identity and website felt instantly ours - and our conversion rate went up 28% in the first quarter post-launch.",
-  },
-  {
-    name: "Marc Dubois",
-    role: "Product Lead, Cascad",
-    text: "Exceptional design thinking paired with real engineering knowledge. Ashley shipped production-quality components we could use directly in our codebase. Rare combination.",
-  },
-  {
-    name: "Rania Wijaya",
-    role: "Founder, Studio Forma",
-    text: "Working with Ashley felt like having a senior design director on the team. Precise, communicative, and always one step ahead of what we needed.",
-  },
-  {
-    name: "Tom Eriksen",
-    role: "CTO, Molekule APAC",
-    text: "The mobile app Ashley designed scored a 4.8 in user satisfaction testing - the highest we've ever recorded. The attention to interaction detail was extraordinary.",
-  },
+const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}/f0a583`;
+
+export type Tool = {
+  name: string;
+  role: string;
+  icon: string;
+};
+
+export const homeStack: Tool[] = [
+  { name: "Laravel", role: "Backend framework", icon: iconUrl("laravel") },
+  { name: "PHP", role: "Server-side language", icon: iconUrl("php") },
+  { name: "JavaScript", role: "Interactive interfaces", icon: iconUrl("javascript") },
+  { name: "MySQL", role: "Relational database", icon: iconUrl("mysql") },
+  { name: "Tailwind CSS", role: "Styling", icon: iconUrl("tailwindcss") },
+  { name: "Git", role: "Version control", icon: iconUrl("git") },
 ];
 
-export const blogPosts = [
+export type ToolGroup = {
+  name: string;
+  blurb: string;
+  items: Tool[];
+};
+
+export const stackGroups: ToolGroup[] = [
   {
-    id: "b1",
-    category: "Design",
-    date: "March 12, 2025",
-    title: "Why Most SaaS Dashboards Fail on Mobile - and How to Fix It",
-    excerpt:
-      "70% of enterprise users check their dashboards on mobile at least once a day. Yet most are built desktop-first, then squeezed down. Here's a better approach.",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=70",
+    name: "Backend",
+    blurb: "Where most of my time goes",
+    items: [
+      { name: "Laravel", role: "Primary framework for every recent project", icon: iconUrl("laravel") },
+      { name: "PHP", role: "Server-side language, 8.x", icon: iconUrl("php") },
+      { name: "MySQL", role: "Relational database and schema design", icon: iconUrl("mysql") },
+      { name: "Livewire", role: "Reactive UIs without leaving Laravel", icon: iconUrl("livewire") },
+    ],
   },
   {
-    id: "b2",
-    category: "Development",
-    date: "January 28, 2025",
-    title: "Building a Design System with Tailwind CSS and TypeScript in 2025",
-    excerpt:
-      "A practical guide to token-based design systems that scale - without the overhead of a dedicated toolchain or six-figure design platform.",
-    readTime: "9 min",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&q=70",
+    name: "Frontend",
+    blurb: "The layer users actually touch",
+    items: [
+      { name: "JavaScript", role: "Interactivity, fetch and DOM work", icon: iconUrl("javascript") },
+      { name: "Tailwind CSS", role: "Styling for all current projects", icon: iconUrl("tailwindcss") },
+      { name: "HTML & CSS", role: "Semantic markup, layout, responsive design", icon: iconUrl("html5") },
+      { name: "Alpine.js", role: "Light interactions inside Blade views", icon: iconUrl("alpinedotjs") },
+    ],
+  },
+  {
+    name: "Tools",
+    blurb: "Everything around the code",
+    items: [
+      { name: "Git", role: "Version control, branching, pull requests", icon: iconUrl("git") },
+      { name: "GitHub", role: "Hosting, issues and code review", icon: iconUrl("github") },
+      { name: "Composer", role: "PHP dependency management", icon: iconUrl("composer") },
+      { name: "Postman", role: "Testing APIs before the frontend exists", icon: iconUrl("postman") },
+    ],
   },
 ];

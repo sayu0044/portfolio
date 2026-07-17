@@ -1,19 +1,20 @@
+import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTypescript from "eslint-config-next/typescript";
+import nextTs from "eslint-config-next/typescript";
 
-const eslintConfig = [
+const eslintConfig = defineConfig([
   ...nextVitals,
-  ...nextTypescript,
-  {
-    ignores: [
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-      "portfolio-html/**",
-      "public/js/**",
-    ],
-  },
-];
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    // Design reference files, not app code:
+    "Personal portfolio design brief/**",
+  ]),
+]);
 
 export default eslintConfig;

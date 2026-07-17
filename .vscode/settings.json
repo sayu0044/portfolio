@@ -1,9 +1,0 @@
-{
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "tailwindCSS.includeLanguages": {
-    "css": "css"
-  },
-  "tailwindCSS.experimental.configFile": "tailwind.config.ts"
-}
