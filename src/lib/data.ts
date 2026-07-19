@@ -99,7 +99,7 @@ export const projects: Project[] = [
   },
   {
     slug: "VokasiVote",
-    name: "Vokasivate",
+    name: "VokasiVote",
     meta: "2024 / GROUP BUILD / E-Vote",
     short:
       "User-centered design project documenting research, ideation, prototyping and usability testing.",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     tech: ["figma"],
     image: {
       src: "/images/projects/prototype2.png",
-      alt: "Vokasivate e-vote screenshot placeholder",
+      alt: "VokasiVote e-vote screenshot placeholder",
     },
     status: "prototype",
     link: "https://www.figma.com/design/uPcin5FQCqWaIDH8Lyr11c/Design-Thinking?node-id=0-1&p=f&t=eNAoOPwaykGD8GZ2-0",
