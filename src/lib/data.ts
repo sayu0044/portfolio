@@ -49,6 +49,11 @@ export const journey: JourneyStep[] = [
   },
 ];
 
+// "live" projects link out to the hosted app ("View More" button);
+// "prototype" projects link out to the design/source instead ("View
+// Design" button). See the button rendering in src/app/projects/page.tsx.
+export type ProjectStatus = "live" | "prototype";
+
 export type Project = {
   slug: string;
   name: string;
@@ -57,47 +62,102 @@ export type Project = {
   long: string;
   tech: string[];
   image: { src: string; alt: string };
+  status: ProjectStatus;
+  link: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "Desain Website",
-    name: "Desain Website",
+    slug: "Sweetiepie Website",
+    name: "Sweetiepie Website",
     meta: "2026 / SOLO BUILD / UI/UX DESIGN",
     short:
-      "Warehouse inventory system with stock tracking, low-stock alerts and role-based access.",
-    long: "A warehouse inventory system for a local distributor. Tracks stock movement in and out, raises low-stock alerts, and separates what admins, staff and viewers can do with role-based access. Built on Laravel with a Tailwind interface.",
+      "Workshop booking platform with responsive UI, course showcase and seamless registration flow.",
+    long: "A modern workshop platform designed for SweetiePie, allowing users to explore creative workshops, browse schedules, and register through an intuitive user experience. Built with a responsive frontend, clean layouts, and engaging visual design to showcase classes and improve customer interaction.",
     tech: ["Next.js", "React", "Tailwind CSS", "TypeScript strict"],
     image: {
       src: "/images/projects/design website - fe.png",
-      alt: "Desain Website screenshot placeholder",
+      alt: "Sweetiepie Website screenshot placeholder",
     },
+    status: "live",
+    link: "https://sweetiepie-workshop-ui.vercel.app/",
   },
   {
-    slug: "mobile design",
-    name: "mobile design",
-    meta: "2024 - 2025 / SOLO BUILD / mobile app design",
+    slug: "Mobile Design",
+    name: "Mobile Design",
+    meta: "2024 - 2025 / SOLO BUILD / Mobile App Design",
     short:
-      "Class scheduling app that resolves room and lecturer conflicts automatically.",
-    long: "A class scheduling app for a campus organization. Detects room and lecturer conflicts automatically, suggests open slots, and publishes a shareable weekly timetable. Livewire keeps the schedule grid reactive without a separate frontend.",
-    tech: ["Dart", "Flutter", "Pocketbase", "figma"],
+      "Mobile food ordering app UI with intuitive navigation, product browsing and checkout flow.",
+    long: "A mobile UI/UX design for SweetBite that focuses on delivering a smooth food ordering experience. Includes user journey mapping, product discovery, cart management, and checkout screens designed in Figma with an emphasis on usability and modern mobile design principles.",
+    tech: ["figma","Dart", "Flutter", "Pocketbase"],
     image: {
       src: "/images/projects/prototype1.png",
       alt: "JadwalKu schedule screenshot placeholder",
     },
+    status: "prototype",
+    link: "https://www.figma.com/design/q0eSYfUNhfHvC0MNiO6Xp7/Mobile-SweetBite?t=GCF45tdnoN3sQ9HJ-0",
   },
   {
     slug: "VokasiVote",
     name: "Vokasivate",
-    meta: "2024 / SOLO BUILD / E-Vote",
+    meta: "2024 / GROUP BUILD / E-Vote",
     short:
-      "E-commerce storefront with cart, checkout and a lightweight admin dashboard.",
-    long: "An e-commerce storefront with product catalog, cart, checkout and a lightweight admin dashboard for orders and stock. My first full project in plain PHP and JavaScript, later refactored with what Laravel taught me.",
+      "User-centered design project documenting research, ideation, prototyping and usability testing.",
+    long: "A complete Design Thinking project that follows the user-centered design process from empathy research and problem definition to ideation, prototyping, and testing. Created to demonstrate structured UX problem-solving and validate solutions based on user needs.",
     tech: ["figma"],
     image: {
       src: "/images/projects/prototype2.png",
       alt: "Vokasivate e-vote screenshot placeholder",
     },
+    status: "prototype",
+    link: "https://www.figma.com/design/uPcin5FQCqWaIDH8Lyr11c/Design-Thinking?node-id=0-1&p=f&t=eNAoOPwaykGD8GZ2-0",
+  },
+  // Placeholder projects below - swap short/long copy, tech, image and
+  // link with real project details when ready.
+  {
+    slug: "KampuCuci",
+    name: "KampuCuci",
+    meta: "2026 / GROUP BUILD / PLACEHOLDER",
+    short:
+      "Laundry service app UI with order tracking, pickup scheduling and service management.",
+    long: "A UI/UX prototype for a digital laundry service that simplifies booking, pickup scheduling, order tracking, and payment. Designed in Figma with a clean interface that improves accessibility and streamlines the customer experience.",
+    tech: ["Figma", "Flutter", "Dart", "Supabase"],
+    image: {
+      src: "/images/projects/prototype3.png",
+      alt: "Placeholder project thumbnail",
+    },
+    status: "prototype",
+    link: "https://www.figma.com/design/r5B3ZQ7AJGq6E9HEOiIlNj/KampuCuci?t=gzjMcULY7RhUi5N2-0",
+  },
+  {
+    slug: "Portfolio",
+    name: "Portfolio",
+    meta: "2026 / SOLO BUILD / PLACEHOLDER",
+    short:
+      "Personal portfolio website showcasing projects, technical skills and professional experience.",
+    long: "A responsive personal portfolio website built to highlight projects, technical expertise, and development experience. Features a modern interface, project gallery, and contact section, providing a centralized platform for personal branding and showcasing software engineering work.",
+    tech: ["Javascript", "TypeScript", "Tailwind CSS"],
+    image: {
+      src: "/images/projects/Live1.png",
+      alt: "Placeholder project thumbnail",
+    },
+    status: "live",
+    link: "https://sayuyunan.vercel.app/",
+  },
+  {
+    slug: "Trustora",
+    name: "Trustora",
+    meta: "2026 / GROUP BUILD / PLACEHOLDER",
+    short:
+      "Trust-based service platform with authentication, user management and secure web architecture.",
+    long: "A full-stack web application focused on building trust between users through secure authentication, structured data management, and scalable architecture. Developed using modern web technologies with an emphasis on maintainability, responsive design, and a clean user experience.",
+    tech: ["Python", "CSS", "TypeScript"],
+    image: {
+      src: "/images/projects/prototype4.png",
+      alt: "Placeholder project thumbnail",
+    },
+    status: "prototype",
+    link: "https://github.com/sayu0044/Trustora",
   },
 ];
 

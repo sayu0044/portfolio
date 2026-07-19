@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { gsap } from "gsap";
-import { site } from "@/lib/data";
 import { getLenis } from "@/components/SmoothScroll";
 
 /*
@@ -187,8 +186,7 @@ export default function PageTransition() {
 
       <div className="pt-mark absolute inset-0 grid place-items-center px-6 opacity-0">
         <span className="font-display text-[clamp(22px,3vw,32px)] font-medium text-cream">
-          {site.name}
-          <span className="text-accent">.</span>
+          PORTFOLIO
         </span>
       </div>
       <span className="sr-only">Changing page</span>

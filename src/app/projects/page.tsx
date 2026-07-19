@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { GithubLogoIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowSquareOutIcon,
+  GithubLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import GhostLabel from "@/components/GhostLabel";
 import Magnetic from "@/components/Magnetic";
 import Reveal from "@/components/Reveal";
@@ -69,13 +72,17 @@ export default function ProjectsPage() {
               </div>
               <div className="mt-7">
                 <a
-                  href={site.github}
+                  href={p.link}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border-b border-accent/40 pb-1 text-[15px] text-accent transition-colors duration-300 hover:border-accent-soft hover:text-accent-soft"
                 >
-                  <GithubLogoIcon size={16} />
-                  View design
+                  {p.status === "live" ? (
+                    <ArrowSquareOutIcon size={16} />
+                  ) : (
+                    <GithubLogoIcon size={16} />
+                  )}
+                  {p.status === "live" ? "View More" : "View Design"}
                 </a>
               </div>
             </div>

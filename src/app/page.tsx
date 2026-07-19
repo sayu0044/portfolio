@@ -108,7 +108,7 @@ export default function Home() {
             </Link>
           </Reveal>
           <Reveal stagger className="mt-13 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
+            {projects.slice(0, 3).map((p) => (
               <Link
                 key={p.slug}
                 href="/projects"
