@@ -75,7 +75,7 @@ export default function ProjectsPage() {
                   className="inline-flex items-center gap-2 border-b border-accent/40 pb-1 text-[15px] text-accent transition-colors duration-300 hover:border-accent-soft hover:text-accent-soft"
                 >
                   <GithubLogoIcon size={16} />
-                  View code
+                  View design
                 </a>
               </div>
             </div>

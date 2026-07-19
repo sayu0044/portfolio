@@ -74,29 +74,29 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "Prototype mobile design",
-    name: "Prototype mobile design",
+    slug: "mobile design",
+    name: "mobile design",
     meta: "2024 - 2025 / SOLO BUILD / mobile app design",
     short:
       "Class scheduling app that resolves room and lecturer conflicts automatically.",
     long: "A class scheduling app for a campus organization. Detects room and lecturer conflicts automatically, suggests open slots, and publishes a shareable weekly timetable. Livewire keeps the schedule grid reactive without a separate frontend.",
-    tech: ["Laravel", "Livewire", "MySQL"],
+    tech: ["Dart", "Flutter", "Pocketbase", "figma"],
     image: {
-      src: "/images/jadwalku.jpg",
+      src: "/images/projects/prototype1.png",
       alt: "JadwalKu schedule screenshot placeholder",
     },
   },
   {
-    slug: "tokokita",
-    name: "TokoKita",
-    meta: "2024 / SOLO BUILD / E-COMMERCE",
+    slug: "VokasiVote",
+    name: "Vokasivate",
+    meta: "2024 / SOLO BUILD / E-Vote",
     short:
       "E-commerce storefront with cart, checkout and a lightweight admin dashboard.",
     long: "An e-commerce storefront with product catalog, cart, checkout and a lightweight admin dashboard for orders and stock. My first full project in plain PHP and JavaScript, later refactored with what Laravel taught me.",
-    tech: ["PHP", "JavaScript", "MySQL"],
+    tech: ["figma"],
     image: {
-      src: "/images/tokokita.jpg",
-      alt: "TokoKita storefront screenshot placeholder",
+      src: "/images/projects/prototype2.png",
+      alt: "Vokasivate e-vote screenshot placeholder",
     },
   },
 ];
